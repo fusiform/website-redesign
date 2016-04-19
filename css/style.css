@@ -29,199 +29,116 @@ body {
   z-index: -1; // Put the video behind all other elements
 }
 
-/*start slider*/
-.mainContainer {
-  margin: 0 auto;
-  width: 960px;
-  float: left;
+/*start signup Modal*/
 
-}
-.mainContainer ul {
-  padding: 0 10px;
-  margin: 0;
-}
-.mainContainer ul li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.mainContainer h1 {
-  font-size: 22px;
-  margin: 0;
-  text-align: center;
-}
-
-.blue {
-  background-color: blue;
-}
-
-.red {
-  background-color: red;
-}
-
-.white {
-  background-color: white;
-}
-
-.green {
-  background-color: green;
-}
-
-.purple {
-  background-color: purple;
-}
-
-.listContainer {
-  position: relative;
-  width: 400px;
-  margin: 0 auto;
+.signupModal form{
+  display: block;
+  z-index: 99999;
+  -webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+  margin:5% auto;
+  width:400px;
+  min-height:400px;
+  background:#fff;
+  padding:2.5% 5% 2.5%;
+  border-radius:2.5%;
+  pointer-events: none;
+  visibility: hidden;
 }
 
 
+.signupModal:target {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
 
-.listContainer li {
-  position: absolute;
-  display: inline-block;
-  width: 300px;
-  height: 200px;
-  transition: left 1s, width .8s;
-  font-family: "Source Sans Pro";
-  font-weight: bold;
-  text-align: center;
+.signupModal form img {
+  text-align:center;
+  width:35%;
+  margin:0 auto;
+  display:block;
+  padding:0;
 }
-.listContainer li:nth-child(1) {
-  /* Just for Fun Comment background-image to see it */
-  /*background-color: #330000;
-  color: #00cccc;*/
-  background-color: rgba(70, 154, 222, .95);
-  /* A little trick to bypass browser Cache */
-  background-image: url(../images/metro2.png);
-  background-position: top left;
-  left: 0px;
+
+.signupModal h2 {
+  font-size:1.5em;
+  padding:0;
+  margin:0;
+  text-align:center;
+  font-family: 'Avenir Next';
+  font-weight: normal;
 }
-.listContainer li:nth-child(1):hover {
-  width: 500px;
+
+.signupModal input {
+  margin:5% 0;
+  border:none;
+  width:100%;
+  font-size:1.5em;
+  padding:0 0 2%;
+  background:none;
 }
-.listContainer li:nth-child(1):hover ~ li:nth-child(2) {
-  left: 440px;
+
+.signupModal textarea:focus, input:focus{
+    outline: 0;
 }
-.listContainer li:nth-child(1):hover ~ li:nth-child(3) {
-  left: 460px;
+
+.signupModal #name {
+  border-bottom:2px solid #52d3aa;
 }
-.listContainer li:nth-child(1):hover ~ li:nth-child(4) {
-  left: 480px;
+
+.signupModal #email {
+  border-bottom:2px solid #3f95ea;
 }
-.listContainer li:nth-child(1):hover ~ li:nth-child(5) {
-  left: 500px;
+
+.signupModal #password {
+  border-bottom:2px solid #BDC3C7;
 }
-.listContainer li:nth-child(1):hover ~ li:nth-child(6) {
-  left: 520px;
+
+.signupModal label {
+  color:#BDC3C7;
+  text-transform:uppercase;
+  font-size:0.8em;
+  letter-spacing:4px;
 }
-.listContainer li:nth-child(2) {
-  /* Just for Fun Comment background-image to see it */
-  background-color: rgba(72, 169, 193, .95);
-  /*background-color: #660000;*/
-  /*color: #009999;*/
-  /* A little trick to bypass browser Cache */
-  background-image: url(../images/SIL2.png);
-  background-position: top left;
-  background-repeat: no-repeat;
-  left: 100px;
-}
-.listContainer li:nth-child(2):hover {
-  width: 500px;
-}
-.listContainer li:nth-child(2):hover ~ li:nth-child(3) {
-  left: 560px;
-}
-.listContainer li:nth-child(2):hover ~ li:nth-child(4) {
-  left: 580px;
-}
-.listContainer li:nth-child(2):hover ~ li:nth-child(5) {
-  left: 600px;
-}
-.listContainer li:nth-child(2):hover ~ li:nth-child(6) {
-  left: 620px;
-}
-.listContainer li:nth-child(3) {
-  /* Just for Fun Comment background-image to see it */
-  /*background-color: #990000;
-  color: #006666;*/
-  background-color: rgba(76, 180, 185, .95);
-  /* A little trick to bypass browser Cache */
-  background-image: url(../images/Dankmeyer_T.png);
-  background-position: top left;
-  background-repeat: no-repeat;
-  left: 200px;
-}
-.listContainer li:nth-child(3):hover {
-  width: 500px;
-}
-.listContainer li:nth-child(3):hover ~ li:nth-child(4) {
-  left: 680px;
-}
-.listContainer li:nth-child(3):hover ~ li:nth-child(5) {
-  left: 700px;
-}
-.listContainer li:nth-child(3):hover ~ li:nth-child(6) {
-  left: 720px;
-}
-.listContainer li:nth-child(4) {
-  /* Just for Fun Comment background-image to see it */
-  /*background-color: #cc0000;
-  color: #003333;*/
-  background-color: rgba(80, 190, 179, .95);
-  /* A little trick to bypass browser Cache */
-  background-image: url(../images/Abell.png);
-  background-position: top left;
-  background-position: center;
-  background-repeat: no-repeat;
-  left: 300px;
-}
-.listContainer li:nth-child(4):hover {
-  width: 500px;
-}
-.listContainer li:nth-child(4):hover ~ li:nth-child(5) {
-  left: 800px;
-}
-.listContainer li:nth-child(4):hover ~ li:nth-child(6) {
-  left: 820px;
-}
-.listContainer li:nth-child(5) {
-  /* Just for Fun Comment background-image to see it */
-  /*background-color: red;
-  color: black;*/
-  /* A little trick to bypass browser Cache */
-  background-color: rgba(82, 211, 170, .95);
-  background-image: url(../images/AB.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  left: 400px;
-}
-.listContainer li:nth-child(5):hover {
-  width: 500px;
-}
-.listContainer li:nth-child(5):hover ~ li:nth-child(6) {
-  left: 820px;
-}
-.listContainer li:nth-child(6) {
-  left: 500px;
-  background-color: rgba(255, 255, 255, .95);
-  background-image: url(../images/OurPartners.png);
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.listContainer li:nth-child(6):hover {
-  width: 500px;
-}
-.listContainer li:nth-child(6):hover ~ li:nth-child(6) {
-  left: 520px;
+
+.signupModal #button {
+  background:none;
+  border:none;
+  width:100%;
+  min-height:50px;
+  margin:10px 0 10px;
+  border-radius:2.5%;
+  color:white;
+  padding:0.5% 0 0;
+  font-size:1.5em;
+  font-family: 'Avenir Next';
+
+  -webkit-transition: background 1s ease-out;
+    -moz-transition: background 1s ease-out;
+    -o-transition: background 1s ease-out;
+    transition: background 1s ease-out;
+
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f2b07e+0,fbd75c+100 */
+  background: #f2b07e; /* Old browsers */
+  background: -moz-linear-gradient(left,  #3f95ea 0%, #52d3aa 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#3f95ea), color-stop(100%,#52d3aa)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  #3f95ea 0%,#52d3aa 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  #3f95ea 0%,#52d3aa 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  #3f95ea 0%,#52d3aa 100%); /* IE10+ */
+  background: linear-gradient(to right,  #3f95ea 0%,#52d3aa 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f95ea', endColorstr='#52d3aa',GradientType=1 ); /* IE6-9 */
 }
 
 
+.signupModal #button:hover {
+    background-position:-400px;
+}
 
+/*end signup Modal*/
 
-/*end of slider*/
 
 
 a {
@@ -698,7 +615,8 @@ h1, h2, h3, h4, h5, h6 {
   flex-grow: 1;
   background-size: cover;
   position: relative;
-  backgroun-repeat: no-repeat;
+  background-repeat: no-repeat;
+  color: #C0C0C0; <!--changed text description color-->
 }
 @media screen and (max-width: 768px) {
   #fh5co-intro .fh5co-block {
@@ -731,6 +649,7 @@ h1, h2, h3, h4, h5, h6 {
 #fh5co-intro .fh5co-block > .fh5co-text {
   position: relative;
   z-index: 10;
+  color: #C0C0C0; <!--don't know why h2 color not changing-->
 }
 #fh5co-intro .fh5co-block > .fh5co-text .fh5co-intro-icon {
   font-size: 50px;
@@ -1251,6 +1170,11 @@ h1, h2, h3, h4, h5, h6 {
   top: .2em;
   left: 0;
 }
+
+#fh5co-partners {
+  padding-bottom: 0;
+}
+
 
 .section-heading {
   float: left;

@@ -1,0 +1,436 @@
+<html>
+
+<head>
+  <title>Form Replication</title>
+  <link rel="stylesheet" type="text/css" href="styles/normalize.css">
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <link rel="stylesheet" type="text/css" href="styles/bonus.css">
+  <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAD4+Pji+Pj48vj4+PD4+Pjw9ff48Mfj9/Wn3fj4l9f4+pbX+Pqk3Pf5ud739vL2+PH4+Pjw+Pj48Pj4+PL4+Pji+Pj4//j4+P/4+Pj/yeT3/5rZ+P+Q0vf/l9L3/53U9/+d1Pf/mNL3/4/R9/+f2/j/weP4//j4+P/4+Pj/+Pj4//j4+O/4+Pj/teD4/4/K9v+Qy/b/lM33/5TO9/+Uzvf/lM73/5TO9/+Vzvf/jMn2/4jH9v+s3Pf/+Pj4//j4+PD4+Pjv0+n3/4PJ9v+N0Pf/kND2/4/Q9v+P0Pb/j9D2/4/Q9v+P0Pb/j9D2/4/Q9v+O0Pf/gcn2/7/h9//4+Pjw7Pb48Frb/P9e2fv/YNn7/1/Z+/9f2fv/X9n7/1/Z+/9f2fv/X9n7/1/Z+/9f2fv/X9n7/2DZ+/9a2vz/1/L586/l+fZh0fr/YdL6/2HS+v9h0vr/YdL6/2HS+v9h0vr/YdL6/2HS+v9h0vr/YdL6/2HS+v9h0vr/YdH6/5bf+fqK2fn7ZM75/2TO+f9kzvn/ZM75/2TO+f9kzvn/ZM75/2TO+f9kzvn/ZM75/2TO+f9kzvn/ZM75/2TO+f971fn8etH4/WfL+P9ny/j/Z8v4/2fL+P9ny/j/Z8v4/2fL+P9ny/j/Z8v4/2fL+P9ny/j/Z8v4/2fL+P9ny/j/cs/4/n/O+P1qx/j/asf4/2rH+P9qx/j/asf4/2rH+P9qx/j/asf4/2rH+P9qx/j/asf4/2rH+P9qx/j/asf4/3fL+P6U0vf6bcT3/23E9/9txPf/bcT3/23E9/9txPf/bcT3/23E9/9txPf/bcT3/23E9/9txPf/bcT3/23E9/+Gzff8v+H39XDB9v9wwfb/cMH2/3DB9v9wwfb/cMH2/3DB9v9wwfb/cMH2/3DB9v9wwfb/cMH2/3DB9v9wwfb/ptf3+fT2+O92wPX/cr71/3K+9f9yvvX/cr71/3K+9f9yvvX/cr71/3K+9f9yvvX/cr71/3K+9f9yvvX/cr71/+Xw+PL4+Pjv0eb3/3W79P91u/T/dbv0/3W79P91u/T/dbv0/3W79P91u/T/dbv0/3W79P91u/T/dbv0/7nb9//4+Pjw+Pj47/j4+P+01vb/eLf0/3i49P94uPT/eLj0/3i49P94uPT/eLj0/3i49P94uPT/eLf0/6PN9f/4+Pj/+Pj48Pj4+P/4+Pj/+Pj4/87h9v+Hu/P/e7Tz/3u18/97tfP/e7Xz/3u18/97tPP/gbfz/8Pc9v/4+Pj/+Pj4//j4+P/4+Pjg+Pj48vj4+O/4+Pjv8/X48MXb9vWlyPT6kb3z/I+88/yixvT6vtf19u3y+PD4+Pjv+Pj47/j4+PL4+PjhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    rel="icon" type="image/x-icon" />
+  <!-- Inspired by form -  https://40.media.tumblr.com/cc256aa6771e073fee5ca6f012713af5/tumblr_nw85iv9hjm1uhk6tmo1_1280.png -->
+  <!-- Colours
+	Yellow - FBD75C
+	Orange - F2B07E
+	-->
+
+    <script src="js/formatter.min.js"></script>
+    
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+    html {
+    	background:#ECF0F1;
+    	font-family: 'Avenir Next', sans-serif;
+        
+    }
+
+    body {
+    }
+
+    a {
+    	display:block;
+    	text-decoration:none;
+    	color:#A2A5A6;
+    	text-align:center;
+    	padding:20px 0 0;
+    }
+
+    form {
+    	margin:5% auto;
+    	width:400px;
+    	min-height:400px;
+    	background:white;
+    	padding:2.5% 5% 2.5%;
+    	/*border-radius:2.5%;*/
+    }
+
+    form img {
+    	text-align:center;
+    	width:20%;
+    	margin:0 auto;
+    	display:block;
+    	padding:0;
+    }
+
+    h2 {
+    	font-size:1.5em;
+    	padding-top:10;
+    	margin:0;
+    	text-align:center;
+      font-family: 'Avenir Next';
+      font-weight: normal;
+        color: #30acc8;
+    }
+
+    input {
+    	margin:5% 0;
+    	border:none;
+    	width:100%;
+    	font-size:1.5em;
+    	padding:0 0 .1%;
+    	background:none;
+    }
+
+    textarea:focus, input:focus{
+        outline: 0;
+    }
+
+    #name {
+    	border-bottom:1px solid #ccc;
+    }
+      #name:focus {
+                outline: none;
+                border-color: #52d3aa;
+                box-shadow: 0 1px 0 0 #52d3aa;
+        }
+
+    #email {
+    	border-bottom:1px solid #ccc;
+    }
+      #email:focus {
+                outline: none;
+                border-color: #20cfb8;
+                box-shadow: 0 1px 0 0 #20cfb8;
+        }
+
+    #password {
+    	border-bottom:1px solid #ccc;
+    }
+    #password:focus {
+                outline: none;
+                border-color: #45BCC3;
+                box-shadow: 0 1px 0 0 #45BCC3;
+        }
+    
+    /*#phone {
+    	border-bottom:2px solid #3f95ea;
+    }*/
+    
+    #address {
+    	border-bottom:1px solid #ccc;
+       
+    }
+      #address:focus {
+                outline: none;
+                border-color: #3f95ea;
+                box-shadow: 0 1px 0 0 #3f95ea;
+        }
+
+    label {
+    	color:#BDC3C7;
+    	text-transform:uppercase;
+    	font-size:0.8em;
+    	letter-spacing:4px;
+    }
+
+    #button {
+    	background:none;
+    	border:none;
+    	width:100%;
+    	min-height:50px;
+    	margin:10px 0 10px;
+    	/*border-radius:2.5%;*/
+    	color:white;
+    	padding:0.5% 0 0;
+    	font-size:1.5em;
+        font-family: 'Avenir Next';
+
+    	-webkit-transition: background 1s ease-out;
+        -moz-transition: background 1s ease-out;
+        -o-transition: background 1s ease-out;
+        transition: background 1s ease-out;
+
+
+    	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f2b07e+0,fbd75c+100 */
+    	background: #f2b07e; /* Old browsers */
+    	background: -moz-linear-gradient(left,  #3f95ea 0%, #52d3aa 100%); /* FF3.6+ */
+    	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#3f95ea), color-stop(100%,#52d3aa)); /* Chrome,Safari4+ */
+    	background: -webkit-linear-gradient(left,  #3f95ea 0%,#52d3aa 100%); /* Chrome10+,Safari5.1+ */
+    	background: -o-linear-gradient(left,  #3f95ea 0%,#52d3aa 100%); /* Opera 11.10+ */
+    	background: -ms-linear-gradient(left,  #3f95ea 0%,#52d3aa 100%); /* IE10+ */
+    	background: linear-gradient(to right,  #3f95ea 0%,#52d3aa 100%); /* W3C */
+    	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f95ea', endColorstr='#52d3aa',GradientType=1 ); /* IE6-9 */
+    }
+
+
+    #button:hover {
+        background-position:-400px;
+    }
+      
+      
+        #phone {
+                position: relative;
+                padding-top: 0px;
+                margin-top: 0px;
+                
+        }
+
+        #phone:after {
+                content: "";
+                display: table;
+                clear: both;
+        }
+
+        #phone-input {
+                border: none;
+                border-bottom: solid 1px #ccc;
+                width: 50%;
+                padding: 0px 0;
+                transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #phone-input:focus {
+                outline: none;
+                border-color: #42B2CF;
+                box-shadow: 0 1px 0 0 #42B2CF; /*20cfb8*/
+        }
+      
+      #zip {
+          position: relative;
+          width:30%;
+          border-bottom:1px solid #ccc;
+      }
+      #zip:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
+      #zip-input {
+          border: none;
+                border-bottom: solid 1px #ccc;
+                width: 30%;
+                padding: 0px 0;
+                transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+       #zip-input:focus {
+                outline: none;
+                border-color: #42B2CF;
+                box-shadow: 0 1px 0 0 #42B2CF; /*20cfb8*/
+        }
+       #csc {
+          position: relative;
+          width:100%;
+          border-bottom:1px solid #ccc;
+      }
+      #csc:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
+      #csc-input {
+          border: none;
+                border-bottom: solid 1px #ccc;
+                width: 100%;
+                padding: 0px 0;
+                transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+       #csc-input:focus {
+                outline: none;
+                border-color: #42B2CF;
+                box-shadow: 0 1px 0 0 #42B2CF; /*20cfb8*/
+        }
+      #street {
+          position: relative;
+          width:100%;
+          border-bottom:1px solid #ccc;
+      }
+      #street:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
+      #street-input {
+          border: none;
+                border-bottom: solid 1px #ccc;
+                width: 100%;
+                padding: 0px 0;
+                transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+       #street-input:focus {
+                outline: none;
+                border-color: #42B2CF;
+                box-shadow: 0 1px 0 0 #42B2CF; /*20cfb8*/
+        }
+      
+
+.input-group {
+  position: relative;
+  padding-top: 0px;
+  margin-top: 0px;
+    
+}
+
+.input-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.input-group input {
+  border: none;
+  border-bottom: solid 1px #ccc;
+  width: 100%;
+  padding: 5px 0;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #3f95ea;
+  box-shadow: 0 1px 0 0 #3f95ea; /*20cfb8*/
+}
+
+.input-group label {
+		position: absolute;
+		top: 30px;
+		left: 0;
+		color: #aaa;
+		font-weight: 300;
+        font-size: 0.6em;
+		transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.input-group label:hover {
+		cursor: text;
+}
+
+.input-group input:focus + label {
+		color: #3f95ea;
+}
+
+.input-group input:focus + label,
+.input-group input.active + label {
+		transform: translateY(-20px);
+}
+     
+    
+      
+  </style>
+
+  <style>
+    html {
+  	/*background: url(images/img_7.jpg) no-repeat center center fixed;*/
+       
+    
+      background: linear-gradient(140deg, #3f95ea, #52d3aa, #764be9);
+background-size: 600% 600%;
+
+-webkit-animation: gradient 30s ease infinite;
+-moz-animation: gradient 30s ease infinite;
+animation: gradient 30s ease infinite;
+      }
+
+@-webkit-keyframes gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes gradient { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+  form {
+  	/*background:rgba(255,255,255,0.90);*/
+      background:rgba(255,255,255,0.9);
+  }
+  </style>
+    
+    <script>
+      new Formatter(document.getElementById('phone-input'), {
+        'pattern': '({{999}}) {{999}} - {{9999}}',
+        'persistent': false
+      });
+    new Formatter(document.getElementById('zip-input'), {
+        'pattern': '{99999}',
+        'persistent': false
+    });
+    
+
+    function leaveInput(el) {
+		if (el.value.length > 0) {
+				if (!el.classList.contains('active')) {
+						el.classList.add('active');
+				}
+		} else {
+				if (el.classList.contains('active')) {
+						el.classList.remove('active');
+				}
+		}
+}
+
+var inputs = document.getElementsByClassName("m-input");
+for (var i = 0; i < inputs.length; i++) {
+		var el = inputs[i];
+		el.addEventListener("blur", function() {
+				leaveInput(this);
+		});
+}
+
+
+</script>
+    
+    
+</head>
+
+<body>
+
+  <form>
+    <img src="images/Brand_MainLogo_Circle.png" width=180px>
+    <span>
+  
+  <h2>SIGN UP</h2>
+  <br>
+  <label for="name">Name</label>
+  
+  <input id="name" type="text" name="name">
+  <br>
+  <label for="email">Email</label>
+  <input id="email" type="email" name="email">
+  <br>
+        
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password">
+  <br>
+        
+  <label for="phone">Phone</label>
+  <br>
+  <!--<input id="phone" type="phone" name="phone">-->  
+    <input type="tel" id="phone-input" class="m-input">    
+  <br>
+     
+<br>
+  <label for="address">Address</label>
+  <div class="input-group">
+  <input type="text" id="street" class="m-input"></input>
+    <label for="csc-input">Street Address</label>
+    <!--<input id="address" type="text" name="address">-->
+  
+  
+        
+    <div class="input-group">
+  <input type="text" id="csc" class="m-input"></input>
+    <label for="csc-input">City, State, Country</label>
+  </div>
+            
+   <div class="input-group">      
+       <input id="zip" type="zip-input" name="zip"> 
+       <label for="zip-input">Zip</label>
+        </div>
+  <br>
+        
+  <br>
+  <input id="button" type="submit" value="Submit">
+  <a href="#">Cancel</a>
+</form>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
