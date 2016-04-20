@@ -352,8 +352,8 @@
       top: 30px;
       left: 0;
       color: #aaa;
-      font-weight: 300;
-      font-size: 0.6em;
+      font-weight: 400;
+      font-size: 0.8em;
       transition: transform 0.2s ease, color 0.2s ease;
   }
 
@@ -377,4 +377,13 @@
   form {
       /*background:rgba(255,255,255,0.90);*/
       background: rgba(255, 255, 255, 0.9);
+  }
+
+  .unselectable {
+      -moz-user-select: none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      pointer:default;
   }
