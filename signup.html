@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Form Replication</title>
+    <title>Clinician Registration</title>
     <link rel="stylesheet" href="css/signupmods.css">
 </head>
 
@@ -13,17 +13,24 @@
 
   <h2>SIGN UP</h2>
   <br>
-  <label for="name">Name</label>
 
-  <input id="name" type="text" name="name">
-  <br>
-  <label for="email">Email</label>
-  <input id="email" type="email" name="email">
-  <br>
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password">
-
+  <div class="input-group">
+    <input id="name" type="text" name="name">
+    <label for="name" class="unselectable">Name</label>
+    <!--<input id="address" type="text" name="address">-->
+  </div>
+  <div class="input-group">
+    <input id="email" type="email" name="email">
+    <label for="email">Email</label>
+  </div>
+  <div class="input-group">
+    <input id="password" type="password" name="password">
+    <label for="password">Password</label>
+  </div>
+  <div class="input-group">
+    <input id="rep-password" type="password" name="rep-password">
+    <label for="rep-password">Repeat Password</label>
+  </div>
   <label for="phone">Phone</label>
   <input type="tel" id="phone-input" class="m-input">
   <br>
@@ -49,7 +56,7 @@
 
 
   <br>
-  <input id="button" type="submit" value="Submit">
+  <input id="button" type="submit" value="Submit" >
   <a href="#">Cancel</a>
 </form>
 
