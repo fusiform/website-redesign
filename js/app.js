@@ -6,14 +6,13 @@ var angularApp = angular.module('angularApp',
 
 
 angularApp.run([ function () {
-  console.log("Hello World");
 }]);
 
 angularApp.controller('testController', function($scope) {
 
 });
 
-angularApp.controller('signupController', function($scope, $http) {
+angularApp.controller('signupController', function($scope, $rootScope, $http) {
 // create a message to display in our view
   $scope.user = {
     "name":"",
@@ -30,28 +29,61 @@ angularApp.controller('signupController', function($scope, $http) {
   $scope.submit = function() {
     console.log($scope.user);
   }
-
-  $scope.test = function() {
-    console.log("Phone number changed");
-    $http({
-      method: 'POST',
-      url: 'https://api.fusiform.co/tvaccess/register/verify/phone',
-      data: {
-        phone:$scope.user.phone
-      }
-    }).then(function successCallback(response) {
-        // this callback will be called asynchronously
-        // when the response is available
-        console.log(response)
-        if (response.data.success) {
-          $scope.user.phone = response.data.formatted;
-        } else {
-          console.log("invalid")
-        }
-      }, function errorCallback(response) {
-        // called asynchronously if an error occurs
-        // or server returns response with an error status.
-          console.log("invalid")
-      });
+  $scope.test = function(){
+    if($scope.user.phone) {
+      $scope.user.phone = $rootScope.phone
+    } else {
+    }
   }
+  $scope.focusing = function () {
+    $rootScope.needToVerify = true
+  }
+
+});
+
+angularApp.directive('phone', function($q, $timeout, $http, $rootScope) {
+  return {
+    require: 'ngModel',
+    link: function(scope, elm, attrs, ctrl) {
+      var usernames = ['Jim', 'John', 'Jill', 'Jackie'];
+
+      ctrl.$asyncValidators.phone = function(modelValue, viewValue) {
+
+        if (ctrl.$isEmpty(modelValue)) {
+          // consider empty model valid
+          return $q.when();
+        }
+
+
+        var def = $q.defer();
+
+        if (!$rootScope.needToVerify ) {
+          def.resolve();
+          return def.promise;
+        }
+
+          // Mock a delayed response
+          $http({
+            method: 'POST',
+            url: 'https://api.fusiform.co/tvaccess/register/verify/phone',
+            data: {
+              phone:modelValue
+            }
+          }).then(function successCallback(response) {
+              if (response.data.success) {
+                $rootScope.$broadcast('phoneFormatted', response.data.formatted);
+                $rootScope.phone = response.data.formatted
+                $rootScope.needToVerify = false
+                def.resolve();
+              } else {
+                  def.reject();
+              }
+            }, function errorCallback(response) {
+                  def.reject();
+            });
+
+        return def.promise;
+      };
+    }
+  };
 });

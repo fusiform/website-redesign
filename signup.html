@@ -3,11 +3,12 @@
 <head>
     <title>Clinician Registration</title>
     <link rel="stylesheet" href="css/signupmods.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
 </head>
 
 <body ng-app="angularApp">
 
-    <form name="signUpForm"ng-controller="signupController">
+    <form name="signUpForm"ng-controller="signupController" autocomplete="off">
         <img src="images/Brand_MainLogo_Circle.png" width=180px>
         <span>
 
@@ -18,11 +19,13 @@
   <div class="input-group">
     <input id="name" ng-model="user.name" type="text" name="name">
     <label for="name" ng-class="{ 'active': user.name != '' }" >Name</label>
-    <!--<input id="address" type="text" name="address">-->
   </div>
   <div class="input-group">
     <input id="email" ng-model="user.email" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" type="email" name="email">
-    <label for="email"ng-class="{ 'active': user.email != '' , 'error': signUpForm.email.$error.email}" >Email<span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px"ng-show="signUpForm.email.$error.email">Please enter a valid email.</span>
+    <label for="email"ng-class="{ 'active': user.email != '' , 'error': signUpForm.email.$error.email}" >Email
+      <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px"
+            ng-show="signUpForm.email.$error.email">Please enter a valid email.
+      </span>
     </label>
   </div>
   <div class="input-group">
@@ -33,9 +36,16 @@
     <input id="rep-password" ng-model="user.repPassword"type="password" name="rep-password">
     <label for="rep-password"ng-class="{ 'active': user.repPassword != '' }" >Repeat Password</label>
   </div>
-  <label for="phone"class="phoneLabel"ng-class="{ 'phoneLabelActive': user.phone != '' }" >Phone</label>
-  <input type="text" ng-model="user.phone"id="phone-input" ng-model-options="{ updateOn: 'blur' }"class="m-input"ng-change="test()">
-  <br>
+  <label for="phone"class="phoneLabel"ng-class="{ 'phoneLabelActive': user.phone != '' , 'phoneLabelError': signUpForm.phone.$error.phone}" >Phone</label>
+  <input type="text" ng-model="user.phone"id="phone-input" ng-model-options="{ updateOn: 'blur' }"class="m-input"ng-focus="focusing()"ng-change="test()"name="phone" phone>
+  <div style="font-size:.8em;letter-spacing: 2px;color:#BDC3C7;text-transform:none;"
+        ng-show="signUpForm.phone.$pending.phone">Validating phone number.
+  </div>
+  <div style="font-size:.8em;letter-spacing: 2px;color:#d9404b;text-transform:none;"
+        ng-show="signUpForm.phone.$error.phone">Please enter a valid phone number.
+  </div>
+
+
 
   <br>
 
