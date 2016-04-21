@@ -386,12 +386,26 @@
     color: #d9404b;
     font-weight: 800;
   }
-  
+
   form {
       /*background:rgba(255,255,255,0.90);*/
       background: rgba(255, 255, 255, 0.9);
   }
+  .phoneLabel {
+    text-transform: uppercase;
+    letter-spacing: 4px;
 
+    font-weight: 400;
+    font-size: 0.8em;
+  }
+  .phoneLabelActive{
+    color: #3f95ea;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+
+    font-weight: 400;
+    font-size: 0.8em;
+  }
   .unselectable {
       -moz-user-select: none;
       -khtml-user-select: none;
