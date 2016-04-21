@@ -73,7 +73,9 @@
         background: white;
         padding: 2.5% 5% 2.5%;
         /*border-radius:2.5%;*/
+
     }
+
   }
 
   @media only screen
@@ -404,6 +406,14 @@
     letter-spacing: 4px;
 
     font-weight: 400;
+    font-size: 0.8em;
+  }
+
+  .phoneLabelError{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+
+      color: #d9404b;
     font-size: 0.8em;
   }
   .unselectable {
