@@ -62,6 +62,7 @@
       padding: 2.5% 5% 2.5%;
       /*border-radius:2.5%;*/
   }
+
   @media only screen
   and (min-device-width : 320px)
   and (max-device-width : 736px)
@@ -240,6 +241,26 @@
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
+
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 736px)
+  {
+
+      #phone-input {
+          width:   70%;
+      }
+
+  }
+
+  @media only screen
+  and (min-device-width : 736px)
+  and (max-device-width : 1024px)
+  {
+    #phone-input {
+        width:   70%;
+    }
+  }
   #phone-input:focus {
       outline: none;
       border-color: #42B2CF;
@@ -363,6 +384,16 @@
       font-size: 0.8em;
       pointer:default;
       transition: transform 0.2s ease, color 0.2s ease;
+  }
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 736px)
+  {
+    .input-group label {
+
+      top:  22px;
+    }
+
   }
 
 
