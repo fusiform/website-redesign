@@ -5,40 +5,48 @@
     <link rel="stylesheet" href="css/signupmods.css">
 </head>
 
-<body>
+<body ng-app="angularApp">
 
-    <form>
+    <form name="signUpForm"ng-controller="signupController">
         <img src="images/Brand_MainLogo_Circle.png" width=180px>
         <span>
 
   <h2>SIGN UP</h2>
   <br>
 
+  <label for="address">Your Profile</label>
   <div class="input-group">
-    <input id="name" type="text" name="name">
-    <label for="name" class="unselectable">Name</label>
+    <input id="name" ng-model="user.name" type="text" name="name">
+    <label for="name" ng-class="{ 'active': user.name != '' }" >Name</label>
     <!--<input id="address" type="text" name="address">-->
   </div>
   <div class="input-group">
-    <input id="email" type="email" name="email">
-    <label for="email">Email</label>
+    <input id="email" ng-model="user.email" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" type="email" name="email">
+    <label for="email"ng-class="{ 'active': user.email != '' , 'error': signUpForm.email.$error.email}" >Email<span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px"ng-show="signUpForm.email.$error.email">Please enter a valid email.</span>
+    </label>
   </div>
   <div class="input-group">
-    <input id="password" type="password" name="password">
-    <label for="password">Password</label>
+    <input id="password" ng-model="user.password"type="password" name="password">
+    <label for="password"ng-class="{ 'active': user.password != '' }" >Password</label>
   </div>
   <div class="input-group">
-    <input id="rep-password" type="password" name="rep-password">
-    <label for="rep-password">Repeat Password</label>
+    <input id="rep-password" ng-model="user.repPassword"type="password" name="rep-password">
+    <label for="rep-password"ng-class="{ 'active': user.repPassword != '' }" >Repeat Password</label>
   </div>
   <label for="phone">Phone</label>
   <input type="tel" id="phone-input" class="m-input">
   <br>
 
   <br>
-  <label for="address">Address</label>
+
+  <label for="address">Organization Info</label>
   <div class="input-group">
-    <input type="text" id="street" class="m-input"onfocusout="test()"></input>
+    <input type="text" id="org-name" class="m-input"></input>
+    <label for="org-name">Organization Name</label>
+    <!--<input id="address" type="text" name="address">-->
+  </div>
+  <div class="input-group">
+    <input type="text" id="street" class="m-input"></input>
     <label for="csc-input">Street Address</label>
     <!--<input id="address" type="text" name="address">-->
   </div>
@@ -49,18 +57,21 @@
       <label for="csc-input">City, State</label>
     </div>
 
-   <div class="input-group">
-       <input id="zip" type="zip-input" name="zip">
-       <label for="zip-input">Zip</label>
-        </div>
+  <div class="input-group">
+    <input id="zip" type="zip-input" name="zip">
+    <label for="zip-input">Zip</label>
+  </div>
 
 
   <br>
-  <input id="button" type="submit" value="Submit" >
+  <input id="button" ng-click="submit(user)"  type="submit" value="Submit" >
   <a href="#">Cancel</a>
 </form>
 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script type="text/javascript" src="js/app.js">
 
+</script>
 <script>
 
 var inputs = document.getElementsByClassName("m-input");
@@ -70,10 +81,6 @@ inputs[1].classList.add('error');
 
 // }
 
-function test(event) {
-  console.log("left")
-  console.log(event)
-}
 
 </script>
 
