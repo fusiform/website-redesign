@@ -469,3 +469,7 @@
       user-select: none;
       pointer:default;
   }
+  .fade.ng-hide {
+    transition:0.5s linear all;
+    opacity:0;
+  }

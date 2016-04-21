@@ -1,7 +1,7 @@
 
 var angularApp = angular.module('angularApp',
 [
-
+'ngAnimate'
 ]);
 
 
@@ -27,8 +27,13 @@ angularApp.controller('signupController', function($scope, $rootScope, $http) {
 
 
   };
-  $scope.submit = function() {
-    console.log($scope.user);
+  $scope.processing=false;
+  $scope.submit = function(valid) {
+    $scope.submitted=true;
+    if(valid) {
+      console.log($scope.user);
+      $scope.processing=true;
+    }
   }
   $scope.test = function(){
     if($scope.user.phone) {

@@ -8,9 +8,24 @@
     <!--320-->
 </head>
 
-<body ng-app="angularApp">
+<body ng-app="angularApp"ng-controller="signupController">
 
-    <form name="signUpForm" ng-controller="signupController" autocomplete="off">
+
+    <img ng-show="processing"src="images/Brand_MainLogo_Circle.png" style = "position:absolute;
+  width: 100px;
+  height: 100px;
+  top: 30%;
+  left: 50%;
+  margin-left: -50px;">
+  <span ng-show="processing"style = "font-size:1.2em;position:absolute;
+  width: 300px;
+  height: 100px;
+  top: 45%;
+  left: 50%;
+  margin-left: -150px;text-align: center;">Your registration request is being processed.</span>
+
+    <form ng-hide="processing"name="signUpForm"  class="fade"autocomplete="off">
+
         <img src="images/Brand_MainLogo_Circle.png" width=180px>
         <span>
 
@@ -104,10 +119,19 @@
 
 
         <br>
-        <input ng-click="submit(user)" class="button" ng-class="{ 'inactive': !signUpForm.$valid }" type="submit" value="Submit">
+        <div style="text-align:center;">
+
+          <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;margin:0 auto;text-align:center;" ng-show="submitted && !signUpForm.$valid">Please complete all required fields.
+          </span>
+        </div>
+        <input ng-click="submit(signUpForm.$valid)" class="button" ng-class="{ 'inactive': !signUpForm.$valid }" type="submit" value="Submit">
+
+
+        </label>
     </form>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
 
 </body>
