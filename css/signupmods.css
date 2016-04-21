@@ -125,11 +125,20 @@
       outline: 0;
   }
 
-  #name {
+  #firstName {
       border-bottom: 1px solid #ccc;
   }
 
-  #name:focus {
+  #firstName:focus {
+      outline: none;
+      border-color: #52d3aa;
+      box-shadow: 0 1px 0 0 #52d3aa;
+  }
+  #lastName {
+      border-bottom: 1px solid #ccc;
+  }
+
+  #lastName:focus {
       outline: none;
       border-color: #52d3aa;
       box-shadow: 0 1px 0 0 #52d3aa;
@@ -182,7 +191,7 @@
       pointer:default;
   }
 
-  #button {
+  .button {
       background: none;
       border: none;
       width: 100%;
@@ -213,13 +222,19 @@
       background: linear-gradient(to right, #3f95ea 0%, #52d3aa 100%);
       /* W3C */
       filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3f95ea', endColorstr='#52d3aa', GradientType=1);
+      cursor:pointer;
       /* IE6-9 */
   }
 
-  #button:hover {
+  .button:hover {
       background-position: -400px;
   }
-
+  .inactive{
+    color:#989898;
+    cursor:default;
+    background-color: black;
+    background: #5e5e5e;
+  }
   #phone {
       position: relative;
       padding-top: 0px;

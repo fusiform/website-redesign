@@ -4,12 +4,13 @@
     <title>Clinician Registration</title>
     <link rel="stylesheet" href="css/signupmods.css">
     <link href="fonts/avenir-next-lt-pro/fontstyle.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <!--320-->
 </head>
 
 <body ng-app="angularApp">
 
-    <form name="signUpForm"ng-controller="signupController" autocomplete="off">
+    <form name="signUpForm" ng-controller="signupController" autocomplete="off">
         <img src="images/Brand_MainLogo_Circle.png" width=180px>
         <span>
 
@@ -18,69 +19,97 @@
 
   <label for="address">Your Profile</label>
   <div class="input-group">
-    <input id="name" ng-model="user.name" type="text" name="name">
-    <label for="name" ng-class="{ 'active': user.name != '' }" >Name</label>
-  </div>
-  <div class="input-group">
-    <input id="email" ng-model="user.email" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" type="email" name="email">
-    <label for="email"ng-class="{ 'active': user.email != '' , 'error': signUpForm.email.$error.email}" >Email
+    <input id="firstName" ng-model="user.firstName" type="text" name="firstName" required>
+    <label for="firstName" ng-class="{ 'active': user.firstName != '' , 'error': signUpForm.firstName.$touched && signUpForm.firstName.$error.required}" >First Name
       <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px"
-            ng-show="signUpForm.email.$error.email">Please enter a valid email.
+            ng-show="signUpForm.firstName.$touched && signUpForm.firstName.$error.required">Required field.
       </span>
-    </label>
-  </div>
-  <div class="input-group">
-    <input id="password" ng-model="user.password"type="password" name="password">
-    <label for="password"ng-class="{ 'active': user.password != '' }" >Password</label>
-  </div>
-  <div class="input-group">
-    <input id="rep-password" ng-model="user.repPassword"type="password" name="rep-password">
-    <label for="rep-password"ng-class="{ 'active': user.repPassword != '' }" >Repeat Password</label>
-  </div>
-  <label for="phone"class="phoneLabel"ng-class="{ 'phoneLabelActive': user.phone != '' , 'phoneLabelError': signUpForm.phone.$error.phone}" >Phone</label>
-  <input type="text" ng-model="user.phone"id="phone-input" ng-model-options="{ updateOn: 'blur' }"class="m-input"ng-focus="focusing()"ng-change="test()"name="phone" phone>
-  <div style="font-size:.8em;letter-spacing: 2px;color:#BDC3C7;text-transform:none;"
-        ng-show="signUpForm.phone.$pending.phone">Validating phone number.
-  </div>
-  <div style="font-size:.8em;letter-spacing: 2px;color:#d9404b;text-transform:none;"
-        ng-show="signUpForm.phone.$error.phone">Please enter a valid phone number.
-  </div>
+        </label>
+
+        </div>
+        <div class="input-group">
+            <input id="lastName" ng-model="user.lastName" type="text" name="lastName" required>
+            <label for="lastName" ng-class="{ 'active': user.lastName != '','error': signUpForm.lastName.$touched && signUpForm.lastName.$error.required}">Last Name
+                <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.lastName.$touched && signUpForm.lastName.$error.required">Required field.
+      </span>
+            </label>
+
+        </div>
+        <div class="input-group">
+            <input id="email" ng-model="user.email" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" type="email" name="email" required>
+            <label for="email" ng-class="{ 'active': user.email != '' , 'error': signUpForm.email.$error.email||(signUpForm.email.$touched && signUpForm.email.$error.required)}">Email
+                <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.email.$error.email">Invalid email.
+      </span>
+                <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.email.$touched && signUpForm.email.$error.required">Required field.
+      </span>
+            </label>
+        </div>
+        <div class="input-group">
+            <input id="password" ng-model="user.password" type="password" name="password" required>
+            <label for="password" ng-class="{ 'active': user.password != '' , 'error': signUpForm.password.$touched && signUpForm.password.$error.required}">Password
+                <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.password.$touched && signUpForm.password.$error.required">Required field.
+      </span>
+            </label>
+        </div>
+        <label for="phone" class="phoneLabel" ng-class="{ 'phoneLabelActive': user.phone != '' , 'phoneLabelError': signUpForm.phone.$error.phone||(signUpForm.phone.$touched && signUpForm.phone.$error.required)}">Phone</label>
+        <input type="text" ng-model="user.phone" id="phone-input" ng-model-options="{ updateOn: 'blur' }" class="m-input" ng-focus="focusing()" ng-change="test()" name="phone" phone required>
+        <div style="font-size:.8em;letter-spacing: 2px;color:#BDC3C7;text-transform:none;" ng-show="signUpForm.phone.$pending.phone">Validating phone number.
+        </div>
+        <div style="font-size:.8em;letter-spacing: 2px;color:#d9404b;text-transform:none;" ng-show="signUpForm.phone.$error.phone">Please enter a valid phone number.
+        </div>
+        <div style="font-size:.8em;letter-spacing: 2px;color:#d9404b;text-transform:none;" ng-show="signUpForm.phone.$touched && signUpForm.phone.$error.required">Required field.
+        </div>
+
+        <br>
+        <br>
+
+        <label for="address">Organization Info</label>
+        <div class="input-group">
+            <input type="text" id="orgName" ng-model="user.orgName" class="m-input" name = "orgName" required></input>
+            <label for="orgName" ng-class="{ 'active': user.orgName != '' , 'error': signUpForm.orgName.$touched && signUpForm.orgName.$error.required}">Organization Name
+              <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.orgName.$touched && signUpForm.orgName.$error.required">Required field.
+              </span>
+            </label>
+            <!--<input
+            <!--<input id="address" type="text" name="address">-->
+        </div>
+        <div class="input-group">
+            <input type="text" id="street" ng-model="user.street" class="m-input" name="street"required></input>
+            <label for="street" ng-class="{ 'active': user.street != '' , 'error': signUpForm.street.$touched && signUpForm.street.$error.required}">Street Address
+
+              <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.street.$touched && signUpForm.street.$error.required">Required field.
+              </span>
+            </label>
+            <!--<input id="address" type="text" name="address">-->
+        </div>
 
 
+        <div class="input-group">
+            <input type="text" id="cityState" ng-model="user.cityState"class="m-input" name="cityState" required></input>
+            <label for="cityState" ng-class="{ 'active': user.cityState != '' , 'error': signUpForm.cityState.$touched && signUpForm.cityState.$error.required}">City, State
 
-  <br>
+              <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.cityState.$touched && signUpForm.cityState.$error.required">Required field.
+              </span>
+            </label>
+        </div>
 
-  <label for="address">Organization Info</label>
-  <div class="input-group">
-    <input type="text" id="org-name" ng-model="user.orgName"class="m-input"></input>
-    <label for="org-name"ng-class="{ 'active': user.orgName != '' }">Organization Name</label>
-    <!--<input id="address" type="text" name="address">-->
-  </div>
-  <div class="input-group">
-    <input type="text" id="street" ng-model="user.csc"class="m-input"></input>
-    <label for="csc-input"ng-class="{ 'active': user.csc != '' }">Street Address</label>
-    <!--<input id="address" type="text" name="address">-->
-  </div>
+        <div class="input-group">
+            <input id="zip" type="zip-input"ng-model="user.zip" name="zip" required>
+            <label for="zip" ng-class="{ 'active': user.zip != '' , 'error': signUpForm.zip.$touched && signUpForm.zip.$error.required}">Zip Code
 
-
-    <div class="input-group">
-      <input type="text" id="csc" class="m-input"></input>
-      <label for="csc-input">City, State</label>
-    </div>
-
-  <div class="input-group">
-    <input id="zip" type="zip-input" name="zip">
-    <label for="zip-input">Zip</label>
-  </div>
+              <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:20px" ng-show="signUpForm.zip.$touched && signUpForm.zip.$error.required">Required field.
+              </span>
+            </label>
+        </div>
 
 
-  <br>
-  <input id="button" ng-click="submit(user)"  type="submit" value="Submit" >
-  <a href="#">Cancel</a>
-</form>
+        <br>
+        <input ng-click="submit(user)" class="button" ng-class="{ 'inactive': !signUpForm.$valid }" type="submit" value="Submit">
+    </form>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 
 </body>
+
 </html>

@@ -15,13 +15,14 @@ angularApp.controller('testController', function($scope) {
 angularApp.controller('signupController', function($scope, $rootScope, $http) {
 // create a message to display in our view
   $scope.user = {
-    "name":"",
+    "firstName":"",
+    "lastName":"",
     "email": "",
     "password":"",
-    "repPassword":"",
     "phone": "",
     "orgName": "",
-    "csc":"",
+    "street":"",
+    "cityState":"",
     "zip":""
 
 
