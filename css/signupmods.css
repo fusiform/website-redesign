@@ -376,12 +376,17 @@
       transform: translateY(-20px);
           color: #3f95ea;
   }
-  
+
   .input-group input.error + label {
       color: red;
       font-weight: bold;
   }
 
+  .error {
+    color: #d9404b;
+    font-weight: 800;
+  }
+  
   form {
       /*background:rgba(255,255,255,0.90);*/
       background: rgba(255, 255, 255, 0.9);
