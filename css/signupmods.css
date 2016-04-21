@@ -1,7 +1,6 @@
-  @import url(https://fonts.googleapis.com/css?family=Montserrat);
   html {
 
-      font-family: 'Avenir Next', sans-serif;
+      font-family: 'Avenir Next LT Pro Regular', sans-serif;
       /*background: url(images/img_7.jpg) no-repeat center center fixed;*/
       background: linear-gradient(140deg, #3f95ea, #52d3aa, #764be9);
       background-size: 600% 600%;
@@ -108,7 +107,7 @@
       padding-top: 10;
       margin: 0;
       text-align: center;
-      font-family: 'Avenir Next';
+      font-family: 'Avenir Next LT Pro Regular';
       font-weight: normal;
       color: #30acc8;
   }
@@ -193,7 +192,7 @@
       color: white;
       padding: 0.5% 0 0;
       font-size: 1.5em;
-      font-family: 'Avenir Next';
+      font-family: 'Avenir Next LT Pro Regular';
       -webkit-transition: background .4s ease-out;
       -moz-transition: background .4s ease-out;
       -o-transition: background .4s ease-out;
