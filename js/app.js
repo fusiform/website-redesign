@@ -29,7 +29,7 @@ angularApp.controller('signupController', function($scope, $rootScope, $http) {
     $scope.processing = false;
     $scope.submit = function(valid) {
         $scope.submitted = true;
-        if (valid) {
+        if (valid && $scope.passwordsMatch && $scope.usernameAvailable) {
             console.log($scope.user);
             $scope.processing = true;
         }
@@ -39,7 +39,7 @@ angularApp.controller('signupController', function($scope, $rootScope, $http) {
             $scope.user.phone = $rootScope.phone
         } else {}
     }
-    $scope.passwordsMatch = false;
+    $scope.passwordsMatch = true;
     $scope.testPasswords = function() {
         // console.log("checking")
         // console.log($scope.user.password)
@@ -47,9 +47,8 @@ angularApp.controller('signupController', function($scope, $rootScope, $http) {
         $scope.passwordsMatch = $scope.user.password==$scope.user.repPassword
         return $scope.user.password==$scope.user.repPassword;
     }
-    $scope.usernameAvailable = false;
+    $scope.usernameAvailable = true;
     $scope.testEmail = function () {
-        console.log("testing email");
         if ($scope.user.email && $scope.user.email != '') {
             $http({
                 method: 'POST',

@@ -32,7 +32,7 @@
   <h2>Clinician Sign Up</h2>
   <br>
 
-  <label for="address">Your Profile</label>
+  <label for="address" style="color:#939393">Your Profile</label>
   <div class="input-group">
     <input id="firstName" ng-model="user.firstName" type="text" name="firstName" required>
     <label for="firstName" ng-class="{ 'active': user.firstName != '' , 'error': signUpForm.firstName.$touched && signUpForm.firstName.$error.required}" >First Name
@@ -80,8 +80,14 @@
             <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.repPassword.$touched && signUpForm.password.$touched && !passwordsMatch">Passwords do not match.
             </span>
         </div>
-        <label for="phone" class="phoneLabel" ng-class="{ 'phoneLabelActive': user.phone != '' , 'phoneLabelError': signUpForm.phone.$error.phone||(signUpForm.phone.$touched && signUpForm.phone.$error.required)}">Phone</label>
-        <input type="text" ng-model="user.phone" id="phone-input" ng-model-options="{ updateOn: 'blur' }" class="m-input" ng-focus="focusing()" ng-change="test()" name="phone" phone required>
+        <div class="input-group">
+            <input type="text" ng-model="user.phone" id="repPassword" ng-model-options="{ updateOn: 'blur' }" class="m-input" ng-focus="focusing()" ng-change="test()" name="phone" phone required>
+            <label for="phone" ng-class="{ 'active': user.phone != '' , 'error': signUpForm.phone.$error.phone||(signUpForm.phone.$touched && signUpForm.phone.$error.required)}">Phone</label>
+
+
+            <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.repPassword.$touched && signUpForm.password.$touched && !passwordsMatch">Passwords do not match.
+            </span>
+        </div>
         <div style="font-size:.8em;letter-spacing: 2px;color:#BDC3C7;text-transform:none;" ng-show="signUpForm.phone.$pending.phone">Validating phone number.
         </div>
         <div style="font-size:.8em;letter-spacing: 2px;color:#d9404b;text-transform:none;" ng-show="signUpForm.phone.$error.phone">Please enter a valid phone number.
@@ -92,7 +98,7 @@
         <br>
         <br>
 
-        <label for="address">Organization Info</label>
+        <label for="address" style="color:#939393">Organization Info</label>
         <div class="input-group">
             <input type="text" id="orgName" ng-model="user.orgName" class="m-input" name="orgName" required></input>
             <label for="orgName" ng-class="{ 'active': user.orgName != '' , 'error': signUpForm.orgName.$touched && signUpForm.orgName.$error.required}">Organization Name
@@ -132,7 +138,7 @@
         </div>
 
         <div class="input-group">
-            <input id="zip" type="zip-input" ng-model="user.zip" name="zip" required>
+            <input id="repPassword" type="zip-input" ng-model="user.zip" name="zip" required>
             <label for="zip" ng-class="{ 'active': user.zip != '' , 'error': signUpForm.zip.$touched && signUpForm.zip.$error.required}">Zip Code
 
                 <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:20px" ng-show="signUpForm.zip.$touched && signUpForm.zip.$error.required">Required field.
