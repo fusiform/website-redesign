@@ -41,11 +41,37 @@ angularApp.controller('signupController', function($scope, $rootScope, $http) {
     }
     $scope.passwordsMatch = false;
     $scope.testPasswords = function() {
-        console.log("checking")
-        console.log($scope.user.password)
-        console.log($scope.user.repPassword)
+        // console.log("checking")
+        // console.log($scope.user.password)
+        // console.log($scope.user.repPassword)
         $scope.passwordsMatch = $scope.user.password==$scope.user.repPassword
         return $scope.user.password==$scope.user.repPassword;
+    }
+    $scope.usernameAvailable = false;
+    $scope.testEmail = function () {
+        console.log("testing email");
+        if ($scope.user.email && $scope.user.email != '') {
+            $http({
+                method: 'POST',
+                url: 'https://api.fusiform.co/tvaccess/register/verify/username',
+                data: {
+                    username: $scope.user.email
+                }
+            }).then(function successCallback(response) {
+                if (response.data.success) {
+                    console.log("valid email")
+                    $scope.usernameAvailable = true;
+                } else {
+                    console.log("INVALID email")
+                    $scope.usernameAvailable = false;
+                }
+            }, function errorCallback(response) {
+                console.log("Error checking username.")
+                $scope.usernameAvailable = false;
+            });
+        }
+
+
     }
     $scope.focusing = function() {
         $rootScope.needToVerify = true

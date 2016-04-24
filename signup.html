@@ -51,13 +51,16 @@
 
         </div>
         <div class="input-group">
-            <input id="email" ng-model="user.email" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" type="email" name="email" required>
-            <label for="email" ng-class="{ 'active': user.email != '' , 'error': signUpForm.email.$error.email||(signUpForm.email.$touched && signUpForm.email.$error.required)}">Email
+            <input id="email" ng-model="user.email" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" type="email" name="email" ng-change="testEmail()"required>
+            <label for="email" ng-class="{ 'active': user.email != '' , 'error': signUpForm.email.$error.email||(signUpForm.email.$touched && signUpForm.email.$error.required) || (signUpForm.email.$touched && !usernameAvailable) }">Email
                 <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="user.email != '' &&!signUpForm.email.$valid">Invalid email.
                 </span>
                 <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.email.$touched && signUpForm.email.$error.required">Required field.
                 </span>
             </label>
+
+            <span style=" margin-bottom:10px;letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="(signUpForm.email.$touched && !usernameAvailable)">An account with this email exists.
+            </span>
         </div>
         <div class="input-group">
             <input id="password" ng-model="user.password" type="password" name="password" ng-change="testPasswords()" required>
@@ -144,7 +147,7 @@
             <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;margin:0 auto;text-align:center;" ng-show="submitted && !signUpForm.$valid">Please complete all required fields.
           </span>
         </div>
-        <input ng-click="submit(signUpForm.$valid)" class="button" ng-class="{ 'inactive': !signUpForm.$valid || !passwordsMatch}" type="submit" value="Submit">
+        <input ng-click="submit(signUpForm.$valid)" class="button" ng-class="{ 'inactive': !signUpForm.$valid || !passwordsMatch || !usernameAvailable}" type="submit" value="Submit">
 
 
         </label>
