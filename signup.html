@@ -8,28 +8,28 @@
     <!--320-->
 </head>
 
-<body ng-app="angularApp"ng-controller="signupController">
+<body ng-app="angularApp" ng-controller="signupController">
 
 
-    <img ng-show="processing"src="images/Brand_MainLogo_Circle.png" style = "position:absolute;
+    <img ng-show="processing" src="images/Brand_MainLogo_Circle.png" style="position:absolute;
   width: 100px;
   height: 100px;
   top: 30%;
   left: 50%;
   margin-left: -50px;">
-  <span ng-show="processing"style = "font-size:1.2em;position:absolute;
+    <span ng-show="processing" style="font-size:1.2em;position:absolute;
   width: 300px;
   height: 100px;
   top: 45%;
   left: 50%;
   margin-left: -150px;text-align: center;">Your registration request is being processed.</span>
 
-    <form ng-hide="processing"name="signUpForm"  class="fade"autocomplete="off">
+    <form ng-hide="processing" name="signUpForm" class="fade" autocomplete="off">
 
         <img src="images/Brand_MainLogo_Circle.png" width=180px>
         <span>
 
-  <h2>SIGN UP</h2>
+  <h2>Clinician Sign Up</h2>
   <br>
 
   <label for="address">Your Profile</label>
@@ -46,25 +46,36 @@
             <input id="lastName" ng-model="user.lastName" type="text" name="lastName" required>
             <label for="lastName" ng-class="{ 'active': user.lastName != '','error': signUpForm.lastName.$touched && signUpForm.lastName.$error.required}">Last Name
                 <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.lastName.$touched && signUpForm.lastName.$error.required">Required field.
-      </span>
+                </span>
             </label>
 
         </div>
         <div class="input-group">
-            <input id="email" ng-model="user.email" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" type="email" name="email" required>
+            <input id="email" ng-model="user.email" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" type="email" name="email" required>
             <label for="email" ng-class="{ 'active': user.email != '' , 'error': signUpForm.email.$error.email||(signUpForm.email.$touched && signUpForm.email.$error.required)}">Email
-                <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.email.$error.email">Invalid email.
-      </span>
+                <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="user.email != '' &&!signUpForm.email.$valid">Invalid email.
+                </span>
                 <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.email.$touched && signUpForm.email.$error.required">Required field.
-      </span>
+                </span>
             </label>
         </div>
         <div class="input-group">
-            <input id="password" ng-model="user.password" type="password" name="password" required>
+            <input id="password" ng-model="user.password" type="password" name="password" ng-change="testPasswords()" required>
             <label for="password" ng-class="{ 'active': user.password != '' , 'error': signUpForm.password.$touched && signUpForm.password.$error.required}">Password
                 <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.password.$touched && signUpForm.password.$error.required">Required field.
       </span>
             </label>
+        </div>
+
+        <div class="input-group">
+            <input id="repPassword" ng-model="user.repPassword" type="password" name="repPassword" ng-change="testPasswords()" required>
+            <label for="repPassword" ng-class="{ 'active': user.repPassword != '' , 'error': (signUpForm.repPassword.$touched && signUpForm.repPassword.$error.required) || (signUpForm.repPassword.$touched && signUpForm.password.$touched && !passwordsMatch)}">Repeat Password
+                <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.repPassword.$touched && signUpForm.repPassword.$error.required">Required field.
+                </span>
+            </label>
+
+            <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.repPassword.$touched && signUpForm.password.$touched && !passwordsMatch">Passwords do not match.
+            </span>
         </div>
         <label for="phone" class="phoneLabel" ng-class="{ 'phoneLabelActive': user.phone != '' , 'phoneLabelError': signUpForm.phone.$error.phone||(signUpForm.phone.$touched && signUpForm.phone.$error.required)}">Phone</label>
         <input type="text" ng-model="user.phone" id="phone-input" ng-model-options="{ updateOn: 'blur' }" class="m-input" ng-focus="focusing()" ng-change="test()" name="phone" phone required>
@@ -80,19 +91,19 @@
 
         <label for="address">Organization Info</label>
         <div class="input-group">
-            <input type="text" id="orgName" ng-model="user.orgName" class="m-input" name = "orgName" required></input>
+            <input type="text" id="orgName" ng-model="user.orgName" class="m-input" name="orgName" required></input>
             <label for="orgName" ng-class="{ 'active': user.orgName != '' , 'error': signUpForm.orgName.$touched && signUpForm.orgName.$error.required}">Organization Name
-              <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.orgName.$touched && signUpForm.orgName.$error.required">Required field.
+                <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.orgName.$touched && signUpForm.orgName.$error.required">Required field.
               </span>
             </label>
             <!--<input
             <!--<input id="address" type="text" name="address">-->
         </div>
         <div class="input-group">
-            <input type="text" id="street" ng-model="user.street" class="m-input" name="street"required></input>
+            <input type="text" id="street" ng-model="user.street" class="m-input" name="street" required></input>
             <label for="street" ng-class="{ 'active': user.street != '' , 'error': signUpForm.street.$touched && signUpForm.street.$error.required}">Street Address
 
-              <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.street.$touched && signUpForm.street.$error.required">Required field.
+                <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.street.$touched && signUpForm.street.$error.required">Required field.
               </span>
             </label>
             <!--<input id="address" type="text" name="address">-->
@@ -100,19 +111,28 @@
 
 
         <div class="input-group">
-            <input type="text" id="cityState" ng-model="user.cityState"class="m-input" name="cityState" required></input>
-            <label for="cityState" ng-class="{ 'active': user.cityState != '' , 'error': signUpForm.cityState.$touched && signUpForm.cityState.$error.required}">City, State
+            <input type="text" id="city" ng-model="user.city" class="m-input" name="city" required></input>
+            <label for="city" ng-class="{ 'active': user.city != '' , 'error': signUpForm.city.$touched && signUpForm.city.$error.required}">City
 
-              <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.cityState.$touched && signUpForm.cityState.$error.required">Required field.
+                <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.city.$touched && signUpForm.city.$error.required">Required field.
               </span>
             </label>
         </div>
 
         <div class="input-group">
-            <input id="zip" type="zip-input"ng-model="user.zip" name="zip" required>
+            <input type="text" id="state" ng-model="user.state" class="m-input" name="state" required></input>
+            <label for="state" ng-class="{ 'active': user.state != '' , 'error': signUpForm.state.$touched && signUpForm.state.$error.required}">State
+
+                <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:10px" ng-show="signUpForm.state.$touched && signUpForm.state.$error.required">Required field.
+              </span>
+            </label>
+        </div>
+
+        <div class="input-group">
+            <input id="zip" type="zip-input" ng-model="user.zip" name="zip" required>
             <label for="zip" ng-class="{ 'active': user.zip != '' , 'error': signUpForm.zip.$touched && signUpForm.zip.$error.required}">Zip Code
 
-              <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:20px" ng-show="signUpForm.zip.$touched && signUpForm.zip.$error.required">Required field.
+                <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;padding-left:20px" ng-show="signUpForm.zip.$touched && signUpForm.zip.$error.required">Required field.
               </span>
             </label>
         </div>
@@ -121,10 +141,10 @@
         <br>
         <div style="text-align:center;">
 
-          <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;margin:0 auto;text-align:center;" ng-show="submitted && !signUpForm.$valid">Please complete all required fields.
+            <span style="letter-spacing: 2px;color:#d9404b;text-transform:none;margin:0 auto;text-align:center;" ng-show="submitted && !signUpForm.$valid">Please complete all required fields.
           </span>
         </div>
-        <input ng-click="submit(signUpForm.$valid)" class="button" ng-class="{ 'inactive': !signUpForm.$valid }" type="submit" value="Submit">
+        <input ng-click="submit(signUpForm.$valid)" class="button" ng-class="{ 'inactive': !signUpForm.$valid || !passwordsMatch}" type="submit" value="Submit">
 
 
         </label>

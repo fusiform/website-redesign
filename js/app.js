@@ -16,6 +16,7 @@ angularApp.controller('signupController', function($scope, $rootScope, $http) {
         "lastName": "",
         "email": "",
         "password": "",
+        "repPassword": "",
         "phone": "",
         "orgName": "",
         "street": "",
@@ -37,6 +38,14 @@ angularApp.controller('signupController', function($scope, $rootScope, $http) {
         if ($scope.user.phone) {
             $scope.user.phone = $rootScope.phone
         } else {}
+    }
+    $scope.passwordsMatch = false;
+    $scope.testPasswords = function() {
+        console.log("checking")
+        console.log($scope.user.password)
+        console.log($scope.user.repPassword)
+        $scope.passwordsMatch = $scope.user.password==$scope.user.repPassword
+        return $scope.user.password==$scope.user.repPassword;
     }
     $scope.focusing = function() {
         $rootScope.needToVerify = true
