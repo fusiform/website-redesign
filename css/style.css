@@ -1339,10 +1339,163 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* --------------------------------------
+FOOTER
+-----------------------------------------*/
+
+.footer {
+    padding: 50px 0 40px 0;
+    text-align: center;
+    /*background-color: #273140;*/
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIHN0b3AtY29sb3I9IiMzZjk1ZWEiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0iIzUyZDNhYSIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjEiLz48L2xpbmVhckdyYWRpZW50PjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjdnNnZykiIC8+PC9zdmc+);
+    font-family: "Avenir Next", Arial, sans-serif;
+}
+.lower-footer span,
+.lower-footer a {
+    font-family: 'Avenir Next', Arial, sans-serif;
+    font-weight: 450;
+    opacity: .5;
+    color: white;
+    font-size: 12px;
+    line-height: 40px;
+    margin-right: 25px;
+}
+.lower-footer a {
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+.lower-footer a:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+.lower-footer .pull-right a {
+    margin: 0;
+    margin-left: 35px;
+    float: left;
+    display: inline-block;
+}
+.lower-footer .fa {
+    margin: 0;
+    opacity: 1;
+    font-size: 20px;
+    float: left;
+    margin-right: 0;
+}
+.lower-footer {
+    margin-top: 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 40px;
+    width: 100%;
+    float: left;
+}
+.upper-footer {
+    width: 100%
+}
+.upper-footer .pull-right {
+    width: 570px;
+}
+.upper-footer .pull-left p {
+    font-family: 'Avenir Next', Arial, sans-serif;
+    font-weight: 350;
+    max-width: 250px;
+    margin-top: 30px;
+    color: white;
+    font-size: 14px;
+    text-align: left;
+    line-height: 25px;
+}
+.footer-nav {
+    float: left;
+    max-width: 280px;
+    padding: 0;
+    margin: 0;
+    margin-top: 5px;
+}
+.footer-nav li {
+    width: 120px;
+    display: inline-block;
+    float: left;
+    margin-bottom: 30px;
+}
+.footer-nav a {
+    font-family: 'Avenir Next', Arial, sans-serif;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0;
+    display: inline-block;
+    text-align: left;
+    float: left;
+    line-height: 1;
+    text-transform: uppercase;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    padding-top: 3px;
+    
+}
+.footer-nav a:hover {
+    text-decoration: none;
+    color: #1080f2
+}
+.footer-secondary-nav {
+    font-family: 'Avenir Next', Arial, sans-serif;
+    font-weight: 350;
+    float: left;
+    padding: 0;
+    width: auto;
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding-left: 50px;
+    max-width: 280px;
+}
+.footer-secondary-nav li {
+    display: inline-block;
+    float: left;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.footer-secondary-nav a {
+    font-family: 'Avenir Next', Arial, sans-serif;
+    font-weight: 350;
+    font-size: 14px;
+    color: #fff;
+    float: left;
+    line-height: 14px;
+}
+.footer-secondary-nav .fa {
+    font-family: 'Avenir Next', Arial, sans-serif;
+    font-weight: 350;
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 18px;
+    height: 14px;
+    line-height: 13px;
+}
+.footer-secondary-nav .fa.fa-envelope {
+    font-family: 'Avenir Next', Arial, sans-serif;
+    font-weight: 350;
+    font-size: 14px;
+}
+
+/*END FOOTER*/
+
+
+/*
+
+
+
 #footer {
   padding: 50px 0;
   color: #7f7f7f;
-  position: relative;
+  position: absolute;
+  background-color: black;
+  content: "";
+  z-index: 3;
+  display: inline-block;
+  height: 120px;
+  width: 101%;
 }
 #footer .gotop {
   position: absolute;
@@ -1455,7 +1608,8 @@ h1, h2, h3, h4, h5, h6 {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   border-radius: 50%;
-}
+} */
+
 
 #map {
   width: 100%;
@@ -1538,5 +1692,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
+
+
 
 /*# sourceMappingURL=style.css.map */
