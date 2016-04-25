@@ -35,7 +35,8 @@
   	<link rel="stylesheet" href="css/magnific-popup.css">
   	<!-- Bootstrap  -->
   	<link rel="stylesheet" href="css/bootstrap.css">
-
+    <link rel="stylesheet" href="css/simplegrid.css">
+        
   	<!--
   	Default Theme Style
   	You can change the style.css (default color purple) to one of these styles
@@ -51,8 +52,7 @@
   	-->
   	<link rel="stylesheet" href="css/style.css">
 
-    <link rel="stylesheet" href="css/slider.css">
-        
+ 
   	<!-- Modernizr JS -->
   	<script src="js/modernizr-2.6.2.min.js"></script>
   	<!-- FOR IE9 below -->
@@ -60,17 +60,7 @@
   	<script src="js/respond.min.js"></script>
   	<![endif]-->
 
-<script type="text/javascript" src="../js/jssor.slider.mini.js"></script>
-<script>
-    jQuery(document).ready(function ($) {
-        var options = {
-            ..
-        };
-            
-        var jssor_slider1 = new $JssorSlider$("slider1_container", options);
-        ...
-    });
-</script>
+
 
 	</head>
 
@@ -123,13 +113,8 @@
 	</section>
 
 	<section id="fh5co-about" data-section="about">
-          <div style="min-height: 50px;">
-    <!-- Jssor Slider Begin -->
-    <div id="slider1_container" style="visibility: hidden; position: relative; margin: 0 auto; width: 980px; height: 380px; overflow: hidden;">
-        ...
-    </div>
-    <!-- Jssor Slider End -->
-</div>
+   
+
         
 		<div class="container">
 			<div class="row">
@@ -148,15 +133,9 @@
 
 
 
-</div>
+                            </div>
 							</div>
-						</div>
-					</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
+						
 		</section>
 
 
@@ -544,48 +523,57 @@
 		<div id="map" class="to-animate"></div>
 	</section>
 
-<section>
 
-	<div class="mainContainer">
-							<div class="row">
+    <div id="footer" class="footer">
+            <div class="container">
+                <div class="row">
+                    <!-- UPPER FOOTER -->
+                    <div class="upper-footer">
+                        <div class="pull-left">
+                            <a class="logo page-scroll" href="#page-top"><img src="images/Brand_AltLogo_CircleText.png" width=200px class="img-responsive" alt=""></a>
+                            <p>Fusiform is a software company seeking to revolutionize the fabrication of orthotic devices to make them better and faster.</p>
+                        </div>
+                        <div class="pull-right">
+                            <ul class="footer-nav">
+                                <li class="">
+                                    <a href="#about">Vision</a>
+                                </li>
+                                <li class="">
+                                    <a href="#cast">CAST</a>
+                                </li>
+                                <li class="active">
+                                    <a class="" href="team.html">Team</a>
+                                </li>
+                                <li class="active">
+                                    <a href="#contact">Contact</a>
+                                </li>
+                            </ul> 
+                            <ul class="footer-secondary-nav">
+                                <li class="">
+                                    <a class="page-scroll" href="mailto:contact@fusiform.co"><span class="fa fa-envelope"></span>contact@fusiform.co</a>
+                                </li>
+                                <li class="">
+                                    <a class="page-scroll" href="#contact"><span class="fa fa-map-marker"></span>Baltimore, Maryland</a> 
+                                </li> 
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- END UPPER FOOTER -->
+                    <!-- LOWER FOOTER -->
+                    <div class="lower-footer">
+                        <div class="pull-left">
+                            <span>© Fusiform, Inc. 2016</span>
 
-										<ul class="listContainer">
-											<li></li>
-											<li></li>
-											<li></li>
-											<li></li>
-											<li></li>
-											<li></li>
-										</ul>
-						</div>
-					</div>
+                            <a href="http://madewithloveinbaltimore.org">Made with <b style="color: red">♥ </b>in Baltimore</a>
 
-	</section>
+                        </div>
 
-		<br>	<br>	<br>	<br>	<br> <br>
-
-<section id="fh5co-contact">
-	<footer id="footer" role="contentinfo">
-		<a href="#" class="gotop js-gotop"><i class="icon-arrow-up2"></i></a>
-		<div class="container">
-			<div class="">
-				<div class="col-md-12 text-center">
-					<p>&copy; Fusiform, Inc. 2015 <br>Made with love in Baltimore.</a> </p>
-
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<ul class="social social-circle">
-						<li><a href="#"><i class="icon-twitter"></i></a></li>
-						<li><a href="#"><i class="icon-facebook"></i></a></li>
-						<li><a href="#"><i class="icon-youtube"></i></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</footer>
-</section>
+                    </div>
+                    <!-- END LOWER FOOTER -->
+                </div>
+            </div>
+        </footer>
+    </div></section>
 
 
 	<!-- jQuery -->
