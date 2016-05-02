@@ -581,6 +581,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: -150px;
   z-index: 10;
   padding-bottom: 7em;
+  color: #C0C0C0;
 }
 @media screen and (max-width: 768px) {
   #fh5co-intro {
@@ -660,7 +661,7 @@ h1, h2, h3, h4, h5, h6 {
 #fh5co-intro .fh5co-block h2 {
   font-size: 24px;
   font-weight: 400;
-  color: #black;
+  color: #C0C0C0;
   z-index: 10;
 }
 #fh5co-intro .fh5co-block:hover > .overlay, #fh5co-intro .fh5co-block:focus > .overlay {
@@ -668,13 +669,13 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 9;
 }
 #fh5co-intro .fh5co-block:hover > .fh5co-text, #fh5co-intro .fh5co-block:focus > .fh5co-text {
-  color: #fff;
+ /* color: #fff; */
 }
 #fh5co-intro .fh5co-block:hover > .fh5co-text .fh5co-intro-icon, #fh5co-intro .fh5co-block:focus > .fh5co-text .fh5co-intro-icon {
-  color: #fff;
+ /* color: #fff; */
 }
 #fh5co-intro .fh5co-block:hover h2, #fh5co-intro .fh5co-block:focus h2 {
-  color: #fff;
+ /* color: #fff; */
 }
 #fh5co-intro .fh5co-block:hover .btn, #fh5co-intro .fh5co-block:focus .btn {
   border: 2px solid #fff !important;
