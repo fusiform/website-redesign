@@ -736,20 +736,20 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.1);
 }
 
-#fh5co-services, #fh5co-testimonials, #fh5co-counters, #fh5co-work, #fh5co-contact, #fh5co-about, #fh5co-partners {
+#fh5co-services2, #fh5co-services, #fh5co-testimonials, #fh5co-counters, #fh5co-work, #fh5co-contact, #fh5co-about, #fh5co-partners {
   padding: 4em 0;
 }
 @media screen and (max-width: 768px) {
-  #fh5co-services, #fh5co-testimonials, #fh5co-counters, #fh5co-work, #fh5co-contact, #fh5co-about, #fh5co-partners {
+  #fh5co-services2, #fh5co-services, #fh5co-testimonials, #fh5co-counters, #fh5co-work, #fh5co-contact, #fh5co-about, #fh5co-partners {
     padding: 2em 0;
   }
 }
 
-#fh5co-services, #fh5co-work, #fh5co-counters {
+#fh5co-services2, #fh5co-services, #fh5co-work, #fh5co-counters {
   padding: 7em 0;
 }
 @media screen and (max-width: 768px) {
-  #fh5co-services, #fh5co-work, #fh5co-counters {
+  #fh5co-services2, #fh5co-services, #fh5co-work, #fh5co-counters {
     padding: 4em 0;
   }
 }
@@ -815,6 +815,89 @@ h1, h2, h3, h4, h5, h6 {
 #fh5co-services .section-heading h2.left-border:after {
   background: rgba(255, 255, 255, 0.3);
 }
+
+
+
+
+
+/*/////SERVICES2/////*/
+
+
+
+#fh5co-services2 {
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+  color: #C0C0C0;
+  font-size: 19px;
+    height: 950px;
+}
+#fh5co-services2:before, #fh5co-services2:after {
+  position: absolute;
+  /*transform: rotate(-1.7deg);
+  -ms-transform: rotate(-1.7deg);
+  -webkit-transform: rotate(-1.7deg);
+  -o-transform: rotate(-1.7deg);
+  -moz-transform: rotate(-1.7deg);*/
+  background-color: transparent;
+  content: "";
+  z-index: 3;
+  display: inline-block;
+  height: 70px;
+  padding: 0;
+  width: 101%;
+}
+#fh5co-services2:before {
+  top: 0;
+  margin-top: -35px;
+}
+#fh5co-services2:after {
+  bottom: 0;
+  margin-bottom: -35px;
+}
+#fh5co-services2 .fh5co-service2 {
+  padding-right: 30px;
+}
+#fh5co-services2 h3 {
+  font-size: 24px;
+  color: #3f95ea;
+    margin-bottom: 0px;
+}
+#fh5co-services2 .icon {
+  font-size: 50px;
+  margin-bottom: 20px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+#fh5co-services2 .icon:before {
+  color: #52d3aa;
+}
+#fh5co-services2 .section-heading h2 {
+  color: black;
+    margin-top: -50px;
+}
+#fh5co-services2 .section-heading h2.left-border:after {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+
+
+
+/*/////*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 #fh5co-counters {
   background: #52d3aa;
