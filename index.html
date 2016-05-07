@@ -84,15 +84,18 @@
 		              <li><a href="#" data-nav-section="partners"><span>Partners</span></a></li>
                     
 		            <li><a href="#" data-nav-section="contact"><span>Contact</span></a></li>
-                      <li><a href="#modal" data-target="modal" data-toggle="modal"><span>Sign Up</span></a>
+                      <li><a href="#modal" data-target="#SUmodal" data-toggle="modal"><span>Sign Up</span></a>
                         
-                                <div id="modal" class="modal fade">
-                                  <div class="modal-dialog">
+                                
+                          
+                          
+                          <div id="SUmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                  <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
                                           aria-hidden="true">&times;</button>
-                                        <h4 class="modal-title">Sign Up</h4>
+                                        <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
                                       </div>
                                       <div class="modal-body">
                                         <p>Are you a vendor or clinician?</p>
@@ -365,21 +368,24 @@ With our technology, long waits and high prices will be a thing of the past. It'
 ​
 						<div class=" to-animate col-md-6" style="padding-bottom:20px;">
 							<div style="background-color: white;padding-right:20px; padding-left:20px;padding-bottom:20px;">
-								<i class="fh5co-intro-icon icon-bulb"></i>
-								<h2>CLINICS</h2>
-								<p>Description</p>
+								<!--<i class="fh5co-intro-icon icon-bulb"></i> -->
+								<br>
+                                <p style="color: #52d3aa; font-weight:400px; font-size:40px; font-weight: 350; margin-bottom: 30px;">CLINICS</h2>
+								<p>Plaster, handwritten forms, and bad communication are a thing of the past. CAST puts you on the same page as your central fabricators, allowing you to digitally collaborate so that your devices are made right.</p>
 ​
-								<p><a href="#" class="btn btn-primary">Learn More</a></p>
+								<p><a href="castclinics.html" class="btn btn-primary">Learn More</a></p>
 ​
 							</div>
 						</div>
 						<div class=" to-animate col-md-6" style="">
 							<div style="background-color: white;padding-left:20px; padding-right:20px;padding-bottom:20px;">
-								<i class="fh5co-intro-icon icon-bulb"></i>
-								<h2>Vendors</h2>
-								<p>Description</p>
+								<!--<i class="fh5co-intro-icon icon-bulb"></i> -->
+                                <br>
+								
+                                <p style="color: #52d3aa; font-weight:400px; font-size:40px; font-weight: 350; margin-bottom: 30px;">VENDORS</p>
+								<p>With the CAST dynamic order management platform, experience secure and efficient storage of orders, open and seamless collaboration with customers, and better management of your orders.</p>
 ​
-								<p><a href="#" class="btn btn-primary">Learn More</a></p>
+								<p><a href="castvendors.html" class="btn btn-primary">Learn More</a></p>
 ​
 							</div>
 						</div>
@@ -419,27 +425,32 @@ With our technology, long waits and high prices will be a thing of the past. It'
                         <div class="grid grid-pad">
                             <div class="col-1-2">
                            <div class="content">
-                               <h3>Clinicians</h3>
-                               <a href="https://Acceleratebaltimore.com" class="thumbnail">
-                                <img src="images/Accelerate.png" alt="...">
-                                </a>  
+                               <h3>Our Mentors, Supporters, and Biggest Fans:</h3>
+                                <a href="https://www.dankmeyer.com" class="thumbnail">
+                                  <img src="images/Dankmeyer.jpg" alt="...">
+                                      </a>
+                                
                                <a href="https://www.abell.org" class="thumbnail">
                                 <img src="images/Abell2.png" alt="...">
                                  </a>
+                                <a href="https://www.mdop.com" class="thumbnail">
+                                  <img src="images/mdop.png" alt="..." width=400px>
+                                      </a>
                            </div>
                         </div>
                     <div class="col-1-2">
                        <div class="content">
-                           <h3>Vendors</h3>
-                            <a href="https://www.dankmeyer.com" class="thumbnail">
-                                  <img src="images/Dankmeyer.jpg" alt="...">
-                                      </a>
-                           <a href="https://www.mdop.com" class="thumbnail">
-                                  <img src="images/mdop.png" alt="..." width=400px>
-                                      </a>
+                           <h3>Proud Members Of:</h3>
+                            <a href="https://Acceleratebaltimore.com" class="thumbnail">
+                                <img src="images/Accelerate.png" alt="...">
+                                </a> 
+                          
                             <a href="https://www.thesocialinnovationlab.org" class="thumbnail">
                                   <img src="images/SIL.png" alt="...">
                                     </a>
+                            <a href="https://http://www.humanconditionlabs.com/" class="thumbnail">
+                                  <img src="images/hc_labs.png" alt="..." width=400px>
+                                      </a>
                        </div>
                     </div>
                 </div>
@@ -481,11 +492,11 @@ With our technology, long waits and high prices will be a thing of the past. It'
     </div>
 </section>
  
-   
+  <!-- 
 	<section id="fh5co-counters" style="background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIHN0b3AtY29sb3I9IiMzZjk1ZWEiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0iIzUyZDNhYSIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjEiLz48L2xpbmVhckdyYWRpZW50PjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjdnNnZykiIC8+PC9zdmc+)"; data-stellar-background-ratio="0.5"> 
         <!-- background-image: url(images/full_image_1.jpg);" 
 		<div class="fh5co-overlay"></div> -->
-		<div class="container">
+<!--		<div class="container">
 			<div class="row">
 				<div class="col-md-12 section-heading text-center to-animate">
 					<h2>Fun Facts</h2>
@@ -523,6 +534,8 @@ With our technology, long waits and high prices will be a thing of the past. It'
 			</div>
 		</div>
        </section>
+
+-->
 
 	<section id="fh5co-contact" data-section="contact">
 		<div class="container">
