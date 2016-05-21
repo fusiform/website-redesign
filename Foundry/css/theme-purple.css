@@ -2642,10 +2642,10 @@ button[type="submit"] .form-loading {
   display: block;
   width: 80px;
   height: 80px;
-  border: 1px solid #9037ff;
+  border: 1px solid #29a9db;
   text-align: center;
   line-height: 80px;
-  color: #9037ff;
+  color: #29a9db;
   border-radius: 50%;
   margin: 0 auto;
   margin-bottom: 24px;
@@ -4541,7 +4541,7 @@ video {
   margin-right: 32px;
   cursor: pointer;
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  border: 2px solid #9037ff;
+  border: 2px solid #29a9db;
   padding: 0 26px;
   height: 40px;
   min-width: 150px;
@@ -4551,7 +4551,7 @@ video {
   text-transform: uppercase;
   letter-spacing: 1px;
   border-radius: 0;
-  color: #9037ff;
+  color: #29a9db;
   text-align: center;
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
@@ -4574,7 +4574,7 @@ video {
   display: inline-block;
 }
 .filters li.active {
-  border-color: #9037ff;
+  border-color: #29a9db;
   opacity: 1;
 }
 .filters li:last-child {
