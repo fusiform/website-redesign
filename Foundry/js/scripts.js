@@ -958,7 +958,7 @@ $(document).ready(function() {
         $('section').removeClass('parallax');
         console.log("On Mobile");
     } else {
-        
+
     }
 
     // Disqus Comments
@@ -994,10 +994,10 @@ $(window).load(function() {
 
     // Initialize Masonry
     console.log("Done");
-        $('#preloader').fadeOut('slow', function() {
-          $(this).remove();
+    $('#preloader').fadeOut('slow', function() {
+      $(this).remove();
 
-        });
+    });
     setTimeout(initializeMasonry, 1000);
     if ((/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)) {
         // $('section').removeClass('parallax');
@@ -1011,65 +1011,67 @@ $(window).load(function() {
             //
             // Dynamically load three.js
             $.loadScript('https://clinic.fusiform.co/assets/js/three/three.min.js', function(){
-                var currentResponsiveWidth = function() {
-                  // notify the renderer of the size change
-                  var width;
-                  var padding = 0;
-                  var elem1 = document.getElementById("canvas-container");
-                  var compWidth = window.getComputedStyle(elem1, null).getPropertyValue("width");
-                  width = Math.floor(Number(compWidth.substring(0,compWidth.length-2)));
+                $.loadScript('https://clinic.fusiform.co/assets/js/three/three.min.js', function(){
+                    var currentResponsiveWidth = function() {
+                      // notify the renderer of the size change
+                      var width;
+                      var padding = 0;
+                      var elem1 = document.getElementById("canvas-container");
+                      var compWidth = window.getComputedStyle(elem1, null).getPropertyValue("width");
+                      width = Math.floor(Number(compWidth.substring(0,compWidth.length-2)));
 
-                  if (window.innerWidth > 768) {
-                    width = width-padding;
-                  } else {
-                    width = width-20;
-                  }
+                      if (window.innerWidth > 768) {
+                        width = width-padding;
+                      } else {
+                        width = width-20;
+                      }
 
-                  return width;
-                };
-                var currentResponsiveHeight = function() {
-                  var height;
-                  var padding = 0;
-                  var elem1 = document.getElementById("canvas-container");
-                  var compHeight = window.getComputedStyle(elem1, null).getPropertyValue("height");
-                  height = Math.floor(Number(compHeight.substring(0,compHeight.length-2)));
+                      return width;
+                    };
+                    var currentResponsiveHeight = function() {
+                      var height;
+                      var padding = 0;
+                      var elem1 = document.getElementById("canvas-container");
+                      var compHeight = window.getComputedStyle(elem1, null).getPropertyValue("height");
+                      height = Math.floor(Number(compHeight.substring(0,compHeight.length-2)));
 
-                  if (window.innerWidth > 768) {
-                    height = height-padding;
-                  } else {
-                    height = height-20;
-                  }
+                      if (window.innerWidth > 768) {
+                        height = height-padding;
+                      } else {
+                        height = height-20;
+                      }
 
-                  return height;
-                };
-                $('#cast-information').removeClass('col-md-12');
-                $('#render-container').removeClass('mobileThreeDisable');
-                $('#cast-information').addClass('col-md-8');
+                      return height;
+                    };
+                    $('#cast-information').removeClass('col-md-12');
+                    $('#render-container').removeClass('mobileThreeDisable');
+                    $('#cast-information').addClass('col-md-8');
 
-                var WIDTH = currentResponsiveWidth();
-                var HEIGHT = currentResponsiveHeight();
-                var container = document.getElementById("canvas-container");
-                var scene = new THREE.Scene();
-                var renderer = new THREE.WebGLRenderer();
-                var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-                var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-                var cube = new THREE.Mesh( geometry, material );
-                scene.add( cube );
-                var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-                renderer.setSize(WIDTH, HEIGHT);
-                container.appendChild(renderer.domElement);
+                    var WIDTH = currentResponsiveWidth();
+                    var HEIGHT = currentResponsiveHeight();
+                    var container = document.getElementById("canvas-container");
+                    var scene = new THREE.Scene();
+                    var renderer = new THREE.WebGLRenderer();
+                    var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+                    var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+                    var cube = new THREE.Mesh( geometry, material );
+                    scene.add( cube );
+                    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+                    renderer.setSize(WIDTH, HEIGHT);
+                    container.appendChild(renderer.domElement);
 
-                camera.position.z = 5;
+                    camera.position.z = 5;
 
-                camera.aspect	= WIDTH /HEIGHT;
-                camera.updateProjectionMatrix();
-                function render() {
-                	requestAnimationFrame( render );
-                	renderer.render( scene, camera );
-                }
-                render();
-                //
-                // THREE.JS Render Complete=====================================
+                    camera.aspect	= WIDTH /HEIGHT;
+                    camera.updateProjectionMatrix();
+                    function render() {
+                    	requestAnimationFrame( render );
+                    	renderer.render( scene, camera );
+                    }
+                    render();
+                    //
+                    // THREE.JS Render Complete=====================================
+                });
             });
 
 
