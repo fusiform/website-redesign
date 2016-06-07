@@ -48,8 +48,14 @@ $(document).ready(function() {
         $('.background-image-holder').each(function() {
             $(this).addClass('fadeIn');
         });
-    }, 200);
 
+    }, 200);
+    setTimeout(function() {
+        $('#preloader').each(function() {
+            $(this).addClass('fadeOut');
+        });
+
+    }, 2000);
     // Initialize Tooltips
 
     $('[data-toggle="tooltip"]').tooltip();
@@ -606,9 +612,9 @@ $(document).ready(function() {
         $(this).closest('.tabbed-content').find('.content>li:nth-of-type(1)').removeClass('active');
         $(this).closest('.tabbed-content').find('.content>li:nth-of-type(2)').addClass('active');
         // $('.tabs').find('li')[0].removeClass('active');
-        console.log($('.tabs').find('li:nth-of-type(1)').removeClass('active'))
-        console.log($('.tabs').find('li:nth-of-type(2)').addClass('active'))
-        console.log("hello world");
+        $('.tabs').find('li:nth-of-type(1)').removeClass('active');
+        $('.tabs').find('li:nth-of-type(2)').addClass('active');
+
     });
 
     // Local Videos
@@ -938,9 +944,21 @@ $(document).ready(function() {
     }
 
     // Disable parallax on mobile
-
+    //
+    jQuery.loadScript = function (url, callback) {
+        jQuery.ajax({
+            url: url,
+            dataType: 'script',
+            success: callback,
+            async: true
+        });
+    }
+    // Check if mobile. Diable parallax and do not render if not on desktop.
     if ((/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)) {
         $('section').removeClass('parallax');
+        console.log("On Mobile");
+    } else {
+        
     }
 
     // Disqus Comments
@@ -975,9 +993,90 @@ $(window).load(function() {
     "use strict";
 
     // Initialize Masonry
+    console.log("Done");
+        $('#preloader').fadeOut('slow', function() {
+          $(this).remove();
 
+        });
     setTimeout(initializeMasonry, 1000);
+    if ((/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)) {
+        // $('section').removeClass('parallax');
+        console.log("On Mobile");
+    } else {
+        // Check if the render container DOM element exists... if it does begin three.js
+        if ($('#render-container').length > 0) {
+            //
+            // @vikram
+            // THREE.JS CODE HERE ==============================================
+            //
+            // Dynamically load three.js
+            $.loadScript('https://clinic.fusiform.co/assets/js/three/three.min.js', function(){
+                var currentResponsiveWidth = function() {
+                  // notify the renderer of the size change
+                  var width;
+                  var padding = 0;
+                  var elem1 = document.getElementById("canvas-container");
+                  var compWidth = window.getComputedStyle(elem1, null).getPropertyValue("width");
+                  width = Math.floor(Number(compWidth.substring(0,compWidth.length-2)));
 
+                  if (window.innerWidth > 768) {
+                    width = width-padding;
+                  } else {
+                    width = width-20;
+                  }
+
+                  return width;
+                };
+                var currentResponsiveHeight = function() {
+                  var height;
+                  var padding = 0;
+                  var elem1 = document.getElementById("canvas-container");
+                  var compHeight = window.getComputedStyle(elem1, null).getPropertyValue("height");
+                  height = Math.floor(Number(compHeight.substring(0,compHeight.length-2)));
+
+                  if (window.innerWidth > 768) {
+                    height = height-padding;
+                  } else {
+                    height = height-20;
+                  }
+
+                  return height;
+                };
+                $('#cast-information').removeClass('col-md-12');
+                $('#render-container').removeClass('mobileThreeDisable');
+                $('#cast-information').addClass('col-md-8');
+
+                var WIDTH = currentResponsiveWidth();
+                var HEIGHT = currentResponsiveHeight();
+                var container = document.getElementById("canvas-container");
+                var scene = new THREE.Scene();
+                var renderer = new THREE.WebGLRenderer();
+                var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+                var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+                var cube = new THREE.Mesh( geometry, material );
+                scene.add( cube );
+                var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+                renderer.setSize(WIDTH, HEIGHT);
+                container.appendChild(renderer.domElement);
+
+                camera.position.z = 5;
+
+                camera.aspect	= WIDTH /HEIGHT;
+                camera.updateProjectionMatrix();
+                function render() {
+                	requestAnimationFrame( render );
+                	renderer.render( scene, camera );
+                }
+                render();
+                //
+                // THREE.JS Render Complete=====================================
+            });
+
+
+        } else {
+            console.log("not going to load;");
+        }
+    }
     // Initialize twitter feed
 
     var setUpTweets = setInterval(function() {
