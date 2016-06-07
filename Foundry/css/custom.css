@@ -15,10 +15,24 @@
     background: #1080f2
 }
 
+
 .annotation-screenshot-caption{
     margin-top:100px;
+    color:blue;
 }
 
+@media (max-width: 990px) {
+    .annotation-screenshot-caption {
+        margin-top: 0px;
+        color: red;
+    }
+}
+
+
+
+
+
+/* Dont put anything below here*/
 .oSpin {
     opacity: 0.9;
     width: 50px;
@@ -77,14 +91,3 @@
         transform: rotate(360deg);
     }
 }
-
-​
-@media (max-width: 767px) {
-    .annotation-screenshot-caption {
-        padding-top: 40px;
-        padding-bottom: 50px;
-        margin-top: 0px;
-        background-color: red;
-    }
-}
-/* ---- Timeline ---- */
