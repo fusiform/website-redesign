@@ -18,7 +18,7 @@ OBJLoader.prototype = {
 
         var loader = new THREE.XHRLoader(scope.manager);
         loader.load(url, function(text) {
-            console.log("done loading");
+            // console.log("done loading");
             scope.parse(text, onLoad);
 
         }, onProgress, onError);
@@ -63,12 +63,6 @@ OBJLoader.prototype = {
         var max_z;
 
         for (var i = 0; i < lines.length; i++) {
-
-            if (i > 54388 && i < 54390) {
-                console.log(line);
-                console.log(face_pattern4.exec(line));
-                console.log(face_pattern5.exec(line));
-            }
 
             var line = lines[i];
             line = line.trim();
@@ -178,7 +172,7 @@ OBJLoader.prototype = {
             }
 
         }
-        console.log(geo.faces.length);
+        // console.log(geo.faces.length);
         geo.computeFaceNormals();
 
         // Using this material is important.
@@ -189,7 +183,7 @@ OBJLoader.prototype = {
         var mesh = new THREE.Mesh(geo, mat);
         container.add(mesh);
 
-        console.timeEnd('OBJLoader');
+        // console.timeEnd('OBJLoader');
 
         callback( container, [min_x, max_x, min_y, max_y, min_z, max_z]);
 

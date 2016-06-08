@@ -999,7 +999,7 @@ $(window).load(function() {
     "use strict";
 
     // Initialize Masonry
-    console.log("Done");
+    // console.log("Done");
     $('#preloader').fadeOut('slow', function() {
         $(this).remove();
 
@@ -1007,8 +1007,10 @@ $(window).load(function() {
     setTimeout(initializeMasonry, 1000);
     if ((/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)) {
         // $('section').removeClass('parallax');
-        console.log("On Mobile");
-    } else {
+        // console.log("On Mobile");
+    }
+
+    if(true) {
         // Check if the render container DOM element exists... if it does begin three.js
         if ($('#render-container').length > 0) {
             //
@@ -1025,7 +1027,7 @@ $(window).load(function() {
                             $('#cast-information').removeClass('col-md-12');
                             $('#render-container').removeClass('mobileThreeDisable');
                             $('#cast-information').addClass('col-md-8');
-                            console.log("done loading");
+                            // console.log("done loading");
                             var scene = new ScanScene(window, '#984ef5');
                             window.addEventListener('resize', scene.adjustSize);
                             scene.loadOBJ('./models/TKeady1.obj', function(xhr){
@@ -1033,11 +1035,11 @@ $(window).load(function() {
                                 if (xhr.lengthComputable) {
                                     var percentComplete = xhr.loaded / xhr.total * 100;
                                     var percentLoaded = Math.round(percentComplete, 2);
-                                    console.log(percentLoaded);
+                                    // console.log(percentLoaded);
                                 }
                             }, function(xhr){
-                                console.log("Error");
-                                console.log(xhr);
+                                // console.log("Error");
+                                // console.log(xhr);
                             }, function(){
                                 $('#cast-information').removeClass('col-md-12');
                                 $('#render-container').removeClass('mobileThreeDisable');

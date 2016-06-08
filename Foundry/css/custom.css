@@ -18,9 +18,15 @@
 
 .annotation-screenshot-caption{
     margin-top:100px;
-    
+
 }
 
+.showOnMobile {
+    display:none;
+}
+.hideOnMobile {
+    display:inherit;
+}
 
 @media (max-width: 990px) {
     .annotation-screenshot-caption {
@@ -31,18 +37,24 @@
     }
     .contact-tint {
         background: linear-gradient(
-          rgba(41, 41, 41, 0.65), 
+          rgba(41, 41, 41, 0.65),
           rgba(41, 41, 41, 0.65)
-        ),  
+        ),
     }
     .contact-margin {
-        margin-top: 20px;    
+        margin-top: 20px;
      }
     .map-opacity {
         opacity: .45;
     }
-        
-    
+
+    .showOnMobile {
+        display:inherit;
+    }
+
+    .hideOnMobile {
+        display:none;
+    }
 }
 
 

@@ -82,7 +82,7 @@ ScanScene.prototype = {
         object.name = "betterScan";
         // console.log(object);
         ScanScene.scene.add( object );
-        console.log('max is ' + 2*Math.max.apply(null, extrema));
+        // console.log('max is ' + 2*Math.max.apply(null, extrema));
         ScanScene.camera.position.z = 400;
         ScanScene.camera.position.x = -100;
         ScanScene.camera.position.y = -200;
