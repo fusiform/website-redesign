@@ -831,7 +831,7 @@ $(document).ready(function() {
 
                 // Create a new loading spinner in the submit button.
                 submitButton.html(jQuery('<div />').addClass('form-loading')).attr('disabled', 'disabled');
-
+                console.log(thisForm.serialize())
                 jQuery.ajax({
                     type: "POST",
                     url: "mail/mail.php",
