@@ -15,7 +15,18 @@
     /*background: #1080f2;*/
     background: #ffffff;
 }
-
+#loader-logo {
+    width:200px;
+    height: auto;
+    margin: auto;
+    padding-bottom: 70px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 30px;
+    margin: auto;
+}
 
 .annotation-screenshot-caption{
     margin-top:100px;
@@ -89,7 +100,7 @@
     width: 30px;
     height: 30px;
     border: 5px solid transparent;
-    border-bottom: 5px solid #1080f2;
+    border-bottom: 5px solid #00b8fc;
     border-radius: 100%;
     -webkit-animation: rotate 1s linear infinite;
     animation: rotate 1s linear infinite;
