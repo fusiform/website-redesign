@@ -1017,10 +1017,10 @@ $(window).load(function() {
             //
             // Dynamically load three.js
             $.loadScript('https://clinic.fusiform.co/assets/js/three/three.min.js', function() {
-                $.loadScript('./js/TrackballControl.js', function() {
-                    $.loadScript('./js/OBJLoader.js', function() {
+                $.loadScript('./js/three/TrackballControl.js', function() {
+                    $.loadScript('./js/three/OBJLoader.js', function() {
 
-                        $.loadScript('./js/ScanScene.js', function() {
+                        $.loadScript('./js/three/ScanScene.js', function() {
 
                             $('#cast-information').removeClass('col-md-12');
                             $('#render-container').removeClass('mobileThreeDisable');
