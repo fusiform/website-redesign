@@ -13,18 +13,18 @@ $(document).ready(function() {
 
     // Smooth scroll to inner links
 
-    $('.inner-link').each(function(){
+    $('.inner-link').each(function() {
         var href = $(this).attr('href');
-        if(href.charAt(0) !== "#"){
+        if (href.charAt(0) !== "#") {
             $(this).removeClass('inner-link');
         }
     });
 
-	if($('.inner-link').length){
-		$('.inner-link').smoothScroll({
-			offset: -55,
-			speed: 800
-		});
+    if ($('.inner-link').length) {
+        $('.inner-link').smoothScroll({
+            offset: -55,
+            speed: 800
+        });
     }
 
     // Update scroll variable for scrolling functions
@@ -62,9 +62,9 @@ $(document).ready(function() {
 
     // Icon bulleted lists
 
-    $('ul[data-bullet]').each(function(){
+    $('ul[data-bullet]').each(function() {
         var bullet = $(this).attr('data-bullet');
-        $(this).find('li').prepend('<i class="'+bullet+'"></i>');
+        $(this).find('li').prepend('<i class="' + bullet + '"></i>');
     });
 
     // Progress Bars
@@ -110,7 +110,7 @@ $(document).ready(function() {
 
     mr_nav = $('body .nav-container nav:first');
     mr_navOuterHeight = $('body .nav-container nav:first').outerHeight();
-        mr_fixedAt = typeof mr_nav.attr('data-fixed-at') !== typeof undefined ? parseInt(mr_nav.attr('data-fixed-at').replace('px', '')) : parseInt($('section:nth-of-type(1)').outerHeight());
+    mr_fixedAt = typeof mr_nav.attr('data-fixed-at') !== typeof undefined ? parseInt(mr_nav.attr('data-fixed-at').replace('px', '')) : parseInt($('section:nth-of-type(1)').outerHeight());
     window.addEventListener("scroll", updateNav, false);
 
     // Menu dropdown positioning
@@ -145,7 +145,7 @@ $(document).ready(function() {
     });
 
     $('.menu li a').click(function() {
-        if ($(this).hasClass('inner-link')){
+        if ($(this).hasClass('inner-link')) {
             $(this).closest('.nav-bar').removeClass('nav-open');
         }
     });
@@ -154,38 +154,37 @@ $(document).ready(function() {
         $(this).toggleClass('toggle-widget-handle');
     });
 
-    $('.search-widget-handle .search-form input').click(function(e){
+    $('.search-widget-handle .search-form input').click(function(e) {
         if (!e) e = window.event;
         e.stopPropagation();
     });
 
     // Offscreen Nav
 
-    if($('.offscreen-toggle').length){
-    	$('body').addClass('has-offscreen-nav');
-    }
-    else{
+    if ($('.offscreen-toggle').length) {
+        $('body').addClass('has-offscreen-nav');
+    } else {
         $('body').removeClass('has-offscreen-nav');
     }
 
-    $('.offscreen-toggle').click(function(){
-    	$('.main-container').toggleClass('reveal-nav');
-    	$('nav').toggleClass('reveal-nav');
-    	$('.offscreen-container').toggleClass('reveal-nav');
+    $('.offscreen-toggle').click(function() {
+        $('.main-container').toggleClass('reveal-nav');
+        $('nav').toggleClass('reveal-nav');
+        $('.offscreen-container').toggleClass('reveal-nav');
     });
 
-    $('.main-container').click(function(){
-    	if($(this).hasClass('reveal-nav')){
-    		$(this).removeClass('reveal-nav');
-    		$('.offscreen-container').removeClass('reveal-nav');
-    		$('nav').removeClass('reveal-nav');
-    	}
+    $('.main-container').click(function() {
+        if ($(this).hasClass('reveal-nav')) {
+            $(this).removeClass('reveal-nav');
+            $('.offscreen-container').removeClass('reveal-nav');
+            $('nav').removeClass('reveal-nav');
+        }
     });
 
-    $('.offscreen-container a').click(function(){
-    	$('.offscreen-container').removeClass('reveal-nav');
-    	$('.main-container').removeClass('reveal-nav');
-    	$('nav').removeClass('reveal-nav');
+    $('.offscreen-container a').click(function() {
+        $('.offscreen-container').removeClass('reveal-nav');
+        $('.main-container').removeClass('reveal-nav');
+        $('nav').removeClass('reveal-nav');
     });
 
     // Populate filters
@@ -229,44 +228,45 @@ $(document).ready(function() {
     });
 
     // Twitter Feed
-       jQuery('.tweets-feed').each(function(index) {
-           jQuery(this).attr('id', 'tweets-' + index);
-       }).each(function(index) {
+    jQuery('.tweets-feed').each(function(index) {
+        jQuery(this).attr('id', 'tweets-' + index);
+    }).each(function(index) {
 
-           var TweetConfig = {
-               "id": jQuery('#tweets-' + index).attr('data-widget-id'),
-               "domId": '',
-               "maxTweets": jQuery('#tweets-' + index).attr('data-amount'),
-               "enableLinks": true,
-               "showUser": true,
-               "showTime": true,
-               "dateFunction": '',
-               "showRetweet": false,
-               "customCallback": handleTweets
-           };
-           function handleTweets(tweets) {
-               var x = tweets.length;
-               var n = 0;
-               var element = document.getElementById('tweets-' + index);
-               var html = '<ul class="slides">';
-               while (n < x) {
-                   html += '<li>' + tweets[n] + '</li>';
-                   n++;
-               }
-               html += '</ul>';
-               element.innerHTML = html;
-               return html;
-           }
-           twitterFetcher.fetch(TweetConfig);
-       });
+        var TweetConfig = {
+            "id": jQuery('#tweets-' + index).attr('data-widget-id'),
+            "domId": '',
+            "maxTweets": jQuery('#tweets-' + index).attr('data-amount'),
+            "enableLinks": true,
+            "showUser": true,
+            "showTime": true,
+            "dateFunction": '',
+            "showRetweet": false,
+            "customCallback": handleTweets
+        };
+
+        function handleTweets(tweets) {
+            var x = tweets.length;
+            var n = 0;
+            var element = document.getElementById('tweets-' + index);
+            var html = '<ul class="slides">';
+            while (n < x) {
+                html += '<li>' + tweets[n] + '</li>';
+                n++;
+            }
+            html += '</ul>';
+            element.innerHTML = html;
+            return html;
+        }
+        twitterFetcher.fetch(TweetConfig);
+    });
 
     // Instagram Feed
 
-    if($('.instafeed').length){
-    	jQuery.fn.spectragram.accessData = {
-			accessToken: '1406933036.fedaafa.feec3d50f5194ce5b705a1f11a107e0b',
-			clientID: 'fedaafacf224447e8aef74872d3820a1'
-		};
+    if ($('.instafeed').length) {
+        jQuery.fn.spectragram.accessData = {
+            accessToken: '1406933036.fedaafa.feec3d50f5194ce5b705a1f11a107e0b',
+            clientID: 'fedaafacf224447e8aef74872d3820a1'
+        };
 
         $('.instafeed').each(function() {
             var feedID = $(this).attr('data-user-name');
@@ -281,12 +281,16 @@ $(document).ready(function() {
 
     // Flickr Feeds
 
-    if($('.flickr-feed').length){
-        $('.flickr-feed').each(function(){
+    if ($('.flickr-feed').length) {
+        $('.flickr-feed').each(function() {
             var userID = $(this).attr('data-user-id');
             var albumID = $(this).attr('data-album-id');
-            $(this).flickrPhotoStream({ id: userID, setId: albumID, container: '<li class="masonry-item" />' });
-            setTimeout(function(){
+            $(this).flickrPhotoStream({
+                id: userID,
+                setId: albumID,
+                container: '<li class="masonry-item" />'
+            });
+            setTimeout(function() {
                 initializeMasonry();
                 window.dispatchEvent(new Event('resize'));
             }, 1000);
@@ -295,19 +299,19 @@ $(document).ready(function() {
     }
 
     // Image Sliders
-    if($('.slider-all-controls, .slider-paging-controls, .slider-arrow-controls, .slider-thumb-controls, .logo-carousel').length){
+    if ($('.slider-all-controls, .slider-paging-controls, .slider-arrow-controls, .slider-thumb-controls, .logo-carousel').length) {
         $('.slider-all-controls').flexslider({
-            start: function(slider){
-                if(slider.find('.slides li:first-child').find('.fs-vid-background video').length){
-                   slider.find('.slides li:first-child').find('.fs-vid-background video').get(0).play();
+            start: function(slider) {
+                if (slider.find('.slides li:first-child').find('.fs-vid-background video').length) {
+                    slider.find('.slides li:first-child').find('.fs-vid-background video').get(0).play();
                 }
             },
-            after: function(slider){
-                if(slider.find('.fs-vid-background video').length){
-                    if(slider.find('li:not(.flex-active-slide)').find('.fs-vid-background video').length){
+            after: function(slider) {
+                if (slider.find('.fs-vid-background video').length) {
+                    if (slider.find('li:not(.flex-active-slide)').find('.fs-vid-background video').length) {
                         slider.find('li:not(.flex-active-slide)').find('.fs-vid-background video').get(0).pause();
                     }
-                    if(slider.find('.flex-active-slide').find('.fs-vid-background video').length){
+                    if (slider.find('.flex-active-slide').find('.fs-vid-background video').length) {
                         slider.find('.flex-active-slide').find('.fs-vid-background video').get(0).play();
                     }
                 }
@@ -345,26 +349,26 @@ $(document).ready(function() {
 
     // Lightbox gallery titles
 
-    $('.lightbox-grid li a').each(function(){
-    	var galleryTitle = $(this).closest('.lightbox-grid').attr('data-gallery-title');
-    	$(this).attr('data-lightbox', galleryTitle);
+    $('.lightbox-grid li a').each(function() {
+        var galleryTitle = $(this).closest('.lightbox-grid').attr('data-gallery-title');
+        $(this).attr('data-lightbox', galleryTitle);
     });
 
     // Prepare embedded video modals
 
-    $('iframe[data-provider]').each(function(){
+    $('iframe[data-provider]').each(function() {
         var provider = jQuery(this).attr('data-provider');
         var videoID = jQuery(this).attr('data-video-id');
         var autoplay = jQuery(this).attr('data-autoplay');
         var vidURL = '';
 
-        if(provider == 'vimeo'){
-            vidURL = "http://player.vimeo.com/video/"+videoID+"?badge=0&title=0&byline=0&title=0&autoplay="+autoplay;
+        if (provider == 'vimeo') {
+            vidURL = "http://player.vimeo.com/video/" + videoID + "?badge=0&title=0&byline=0&title=0&autoplay=" + autoplay;
             $(this).attr('data-src', vidURL);
-        }else if (provider == 'youtube'){
-            vidURL = "https://www.youtube.com/embed/"+videoID+"?showinfo=0&autoplay="+autoplay;
+        } else if (provider == 'youtube') {
+            vidURL = "https://www.youtube.com/embed/" + videoID + "?showinfo=0&autoplay=" + autoplay;
             $(this).attr('data-src', vidURL);
-        }else{
+        } else {
             console.log('Only Vimeo and Youtube videos are supported at this time');
         }
     });
@@ -373,46 +377,46 @@ $(document).ready(function() {
 
     jQuery('.foundry_modal[modal-link]').remove();
 
-    if($('.foundry_modal').length && (!jQuery('.modal-screen').length)){
+    if ($('.foundry_modal').length && (!jQuery('.modal-screen').length)) {
         // Add a div.modal-screen if there isn't already one there.
         var modalScreen = jQuery('<div />').addClass('modal-screen').appendTo('body');
 
     }
 
-    jQuery('.foundry_modal').click(function(){
+    jQuery('.foundry_modal').click(function() {
         jQuery(this).addClass('modal-acknowledged');
     });
 
-    jQuery(document).on('wheel mousewheel scroll', '.foundry_modal, .modal-screen', function(evt){
+    jQuery(document).on('wheel mousewheel scroll', '.foundry_modal, .modal-screen', function(evt) {
         $(this).get(0).scrollTop += (evt.originalEvent.deltaY);
         return false;
     });
 
     $('.modal-container:not([modal-link])').each(function(index) {
-        if(jQuery(this).find('iframe[src]').length){
-        	jQuery(this).find('.foundry_modal').addClass('iframe-modal');
-        	var iframe = jQuery(this).find('iframe');
-        	iframe.attr('data-src',iframe.attr('src'));
+        if (jQuery(this).find('iframe[src]').length) {
+            jQuery(this).find('.foundry_modal').addClass('iframe-modal');
+            var iframe = jQuery(this).find('iframe');
+            iframe.attr('data-src', iframe.attr('src'));
             iframe.attr('src', '');
 
         }
         jQuery(this).find('.btn-modal').attr('modal-link', index);
 
         // Only clone and append to body if there isn't already one there
-        if(!jQuery('.foundry_modal[modal-link="'+index+'"]').length){
+        if (!jQuery('.foundry_modal[modal-link="' + index + '"]').length) {
             jQuery(this).find('.foundry_modal').clone().appendTo('body').attr('modal-link', index).prepend(jQuery('<i class="ti-close close-modal">'));
         }
     });
 
-    $('.btn-modal').unbind('click').click(function(){
-    	var linkedModal = jQuery('.foundry_modal[modal-link="' + jQuery(this).attr('modal-link') + '"]'),
+    $('.btn-modal').unbind('click').click(function() {
+        var linkedModal = jQuery('.foundry_modal[modal-link="' + jQuery(this).attr('modal-link') + '"]'),
             autoplayMsg = "";
         jQuery('.modal-screen').toggleClass('reveal-modal');
-        if(linkedModal.find('iframe').length){
-            if(linkedModal.find('iframe').attr('data-autoplay') === '1'){
+        if (linkedModal.find('iframe').length) {
+            if (linkedModal.find('iframe').attr('data-autoplay') === '1') {
                 var autoplayMsg = '&autoplay=1'
             }
-        	linkedModal.find('iframe').attr('src', (linkedModal.find('iframe').attr('data-src') + autoplayMsg));
+            linkedModal.find('iframe').attr('src', (linkedModal.find('iframe').attr('data-src') + autoplayMsg));
         }
         linkedModal.toggleClass('reveal-modal');
         return false;
@@ -420,108 +424,108 @@ $(document).ready(function() {
 
     // Autoshow modals
 
-	$('.foundry_modal[data-time-delay]').each(function(){
-		var modal = $(this);
-		var delay = modal.attr('data-time-delay');
-		modal.prepend($('<i class="ti-close close-modal">'));
-    	if(typeof modal.attr('data-cookie') != "undefined"){
-        	if(!mr_cookies.hasItem(modal.attr('data-cookie'))){
-                setTimeout(function(){
-        			modal.addClass('reveal-modal');
-        			$('.modal-screen').addClass('reveal-modal');
-        		},delay);
+    $('.foundry_modal[data-time-delay]').each(function() {
+        var modal = $(this);
+        var delay = modal.attr('data-time-delay');
+        modal.prepend($('<i class="ti-close close-modal">'));
+        if (typeof modal.attr('data-cookie') != "undefined") {
+            if (!mr_cookies.hasItem(modal.attr('data-cookie'))) {
+                setTimeout(function() {
+                    modal.addClass('reveal-modal');
+                    $('.modal-screen').addClass('reveal-modal');
+                }, delay);
             }
-        }else{
-            setTimeout(function(){
+        } else {
+            setTimeout(function() {
                 modal.addClass('reveal-modal');
                 $('.modal-screen').addClass('reveal-modal');
-            },delay);
-        }
-	});
-
-    // Autoclose modals
-
-    $('.foundry_modal[data-hide-after]').each(function(){
-        var modal = $(this);
-        var delay = modal.attr('data-hide-after');
-        if(typeof modal.attr('data-cookie') != "undefined"){
-            if(!mr_cookies.hasItem(modal.attr('data-cookie'))){
-                setTimeout(function(){
-                if(!modal.hasClass('modal-acknowledged')){
-                    modal.removeClass('reveal-modal');
-                    $('.modal-screen').removeClass('reveal-modal');
-                }
-                },delay);
-            }
-        }else{
-            setTimeout(function(){
-                if(!modal.hasClass('modal-acknowledged')){
-                    modal.removeClass('reveal-modal');
-                    $('.modal-screen').removeClass('reveal-modal');
-                }
-            },delay);
+            }, delay);
         }
     });
 
-    jQuery('.close-modal:not(.modal-strip .close-modal)').unbind('click').click(function(){
-    	var modal = jQuery(this).closest('.foundry_modal');
+    // Autoclose modals
+
+    $('.foundry_modal[data-hide-after]').each(function() {
+        var modal = $(this);
+        var delay = modal.attr('data-hide-after');
+        if (typeof modal.attr('data-cookie') != "undefined") {
+            if (!mr_cookies.hasItem(modal.attr('data-cookie'))) {
+                setTimeout(function() {
+                    if (!modal.hasClass('modal-acknowledged')) {
+                        modal.removeClass('reveal-modal');
+                        $('.modal-screen').removeClass('reveal-modal');
+                    }
+                }, delay);
+            }
+        } else {
+            setTimeout(function() {
+                if (!modal.hasClass('modal-acknowledged')) {
+                    modal.removeClass('reveal-modal');
+                    $('.modal-screen').removeClass('reveal-modal');
+                }
+            }, delay);
+        }
+    });
+
+    jQuery('.close-modal:not(.modal-strip .close-modal)').unbind('click').click(function() {
+        var modal = jQuery(this).closest('.foundry_modal');
         modal.toggleClass('reveal-modal');
-        if(typeof modal.attr('data-cookie') !== "undefined"){
+        if (typeof modal.attr('data-cookie') !== "undefined") {
             mr_cookies.setItem(modal.attr('data-cookie'), "true", Infinity);
         }
-    	if(modal.find('iframe').length){
+        if (modal.find('iframe').length) {
             modal.find('iframe').attr('src', '');
         }
         jQuery('.modal-screen').removeClass('reveal-modal');
     });
 
-    jQuery('.modal-screen').unbind('click').click(function(){
-        if(jQuery('.foundry_modal.reveal-modal').find('iframe').length){
+    jQuery('.modal-screen').unbind('click').click(function() {
+        if (jQuery('.foundry_modal.reveal-modal').find('iframe').length) {
             jQuery('.foundry_modal.reveal-modal').find('iframe').attr('src', '');
         }
-    	jQuery('.foundry_modal.reveal-modal').toggleClass('reveal-modal');
-    	jQuery(this).toggleClass('reveal-modal');
+        jQuery('.foundry_modal.reveal-modal').toggleClass('reveal-modal');
+        jQuery(this).toggleClass('reveal-modal');
     });
 
     jQuery(document).keyup(function(e) {
-		 if (e.keyCode == 27) { // escape key maps to keycode `27`
-            if(jQuery('.foundry_modal').find('iframe').length){
+        if (e.keyCode == 27) { // escape key maps to keycode `27`
+            if (jQuery('.foundry_modal').find('iframe').length) {
                 jQuery('.foundry_modal').find('iframe').attr('src', '');
             }
-			jQuery('.foundry_modal').removeClass('reveal-modal');
-			jQuery('.modal-screen').removeClass('reveal-modal');
-		}
-	});
-
-    // Modal Strips
-
-    jQuery('.modal-strip').each(function(){
-    	if(!jQuery(this).find('.close-modal').length){
-    		jQuery(this).append(jQuery('<i class="ti-close close-modal">'));
-    	}
-    	var modal = jQuery(this);
-
-        if(typeof modal.attr('data-cookie') != "undefined"){
-
-            if(!mr_cookies.hasItem(modal.attr('data-cookie'))){
-            	setTimeout(function(){
-            		modal.addClass('reveal-modal');
-            	},1000);
-            }
-        }else{
-            setTimeout(function(){
-                    modal.addClass('reveal-modal');
-            },1000);
+            jQuery('.foundry_modal').removeClass('reveal-modal');
+            jQuery('.modal-screen').removeClass('reveal-modal');
         }
     });
 
-    jQuery('.modal-strip .close-modal').click(function(){
+    // Modal Strips
+
+    jQuery('.modal-strip').each(function() {
+        if (!jQuery(this).find('.close-modal').length) {
+            jQuery(this).append(jQuery('<i class="ti-close close-modal">'));
+        }
+        var modal = jQuery(this);
+
+        if (typeof modal.attr('data-cookie') != "undefined") {
+
+            if (!mr_cookies.hasItem(modal.attr('data-cookie'))) {
+                setTimeout(function() {
+                    modal.addClass('reveal-modal');
+                }, 1000);
+            }
+        } else {
+            setTimeout(function() {
+                modal.addClass('reveal-modal');
+            }, 1000);
+        }
+    });
+
+    jQuery('.modal-strip .close-modal').click(function() {
         var modal = jQuery(this).closest('.modal-strip');
-        if(typeof modal.attr('data-cookie') != "undefined"){
+        if (typeof modal.attr('data-cookie') != "undefined") {
             mr_cookies.setItem(modal.attr('data-cookie'), "true", Infinity);
         }
-    	jQuery(this).closest('.modal-strip').removeClass('reveal-modal');
-    	return false;
+        jQuery(this).closest('.modal-strip').removeClass('reveal-modal');
+        return false;
     });
 
 
@@ -535,7 +539,7 @@ $(document).ready(function() {
 
     // Checkboxes
 
-    $('.checkbox-option').on("click",function() {
+    $('.checkbox-option').on("click", function() {
         $(this).toggleClass('checked');
         var checkbox = $(this).find('input');
         if (checkbox.prop('checked') === false) {
@@ -555,7 +559,7 @@ $(document).ready(function() {
 
         if (!checked) {
 
-            $('input[name="'+name+'"]').parent().removeClass('checked');
+            $('input[name="' + name + '"]').parent().removeClass('checked');
 
             $(this).addClass('checked');
 
@@ -575,7 +579,7 @@ $(document).ready(function() {
         } else {
             $(this).toggleClass('active');
         }
-        if(typeof window.mr_parallax !== "undefined"){
+        if (typeof window.mr_parallax !== "undefined") {
             setTimeout(mr_parallax.windowLoad, 500);
         }
     });
@@ -636,13 +640,13 @@ $(document).ready(function() {
         $(this).attr('data-property', "{videoURL:'http://youtu.be/" + src + "',containment:'self',autoPlay:true, mute:true, startAt:" + startat + ", opacity:1, showControls:false}");
     });
 
-	if($('.player').length){
-        $('.player').each(function(){
+    if ($('.player').length) {
+        $('.player').each(function() {
 
             var section = $(this).closest('section');
             var player = section.find('.player');
             player.YTPlayer();
-            player.on("YTPStart",function(e){
+            player.on("YTPStart", function(e) {
                 section.find('.container').removeClass('fadeOut');
                 section.find('.masonry-loader').addClass('fadeOut');
             });
@@ -656,12 +660,12 @@ $(document).ready(function() {
         $(this).addClass('interact');
     });
 
-    if($('.map-holder').length){
-    	$(window).scroll(function() {
-			if ($('.map-holder.interact').length) {
-				$('.map-holder.interact').removeClass('interact');
-			}
-		});
+    if ($('.map-holder').length) {
+        $(window).scroll(function() {
+            if ($('.map-holder.interact').length) {
+                $('.map-holder.interact').removeClass('interact');
+            }
+        });
     }
 
     // Countdown Timers
@@ -737,7 +741,7 @@ $(document).ready(function() {
                 // Create a new loading spinner in the submit button.
                 submitButton.html(jQuery('<div />').addClass('form-loading')).attr('disabled', 'disabled');
 
-                try{
+                try {
                     $.ajax({
                         url: preparedForm.attr('action'),
                         crossDomain: true,
@@ -746,7 +750,7 @@ $(document).ready(function() {
                         cache: false,
                         dataType: 'json',
                         contentType: 'application/json; charset=utf-8',
-                        success: function(data){
+                        success: function(data) {
                             // Request was a success, what was the response?
                             if (data.result != "success" && data.Status != 200) {
 
@@ -783,7 +787,7 @@ $(document).ready(function() {
                             }
                         }
                     });
-                }catch(err){
+                } catch (err) {
                     // Keep the current error text in a data attribute on the form
                     formError.attr('original-error', formError.text());
                     // Show the error with the returned error text.
@@ -831,7 +835,7 @@ $(document).ready(function() {
                 jQuery.ajax({
                     type: "POST",
                     url: "mail/mail.php",
-                    data: thisForm.serialize()+"&url="+window.location.href,
+                    data: thisForm.serialize() + "&url=" + window.location.href,
                     success: function(response) {
                         // Swiftmailer always sends back a number representing numner of emails sent.
                         // If this is numeric (not Swift Mailer error text) AND greater than 0 then show success message.
@@ -892,40 +896,40 @@ $(document).ready(function() {
     });
 
     function validateFields(form) {
-            var name, error, originalErrorMessage;
+        var name, error, originalErrorMessage;
 
-            $(form).find('.validate-required[type="checkbox"]').each(function() {
-                if (!$('[name="' + $(this).attr('name') + '"]:checked').length) {
-                    error = 1;
-                    name = $(this).attr('name').replace('[]', '');
-                    form.find('.form-error').text('Please tick at least one ' + name + ' box.');
-                }
-            });
-
-            $(form).find('.validate-required').each(function() {
-                if ($(this).val() === '') {
-                    $(this).addClass('field-error');
-                    error = 1;
-                } else {
-                    $(this).removeClass('field-error');
-                }
-            });
-
-            $(form).find('.validate-email').each(function() {
-                if (!(/(.+)@(.+){2,}\.(.+){2,}/.test($(this).val()))) {
-                    $(this).addClass('field-error');
-                    error = 1;
-                } else {
-                    $(this).removeClass('field-error');
-                }
-            });
-
-            if (!form.find('.field-error').length) {
-                form.find('.form-error').fadeOut(1000);
+        $(form).find('.validate-required[type="checkbox"]').each(function() {
+            if (!$('[name="' + $(this).attr('name') + '"]:checked').length) {
+                error = 1;
+                name = $(this).attr('name').replace('[]', '');
+                form.find('.form-error').text('Please tick at least one ' + name + ' box.');
             }
+        });
 
-            return error;
+        $(form).find('.validate-required').each(function() {
+            if ($(this).val() === '') {
+                $(this).addClass('field-error');
+                error = 1;
+            } else {
+                $(this).removeClass('field-error');
+            }
+        });
+
+        $(form).find('.validate-email').each(function() {
+            if (!(/(.+)@(.+){2,}\.(.+){2,}/.test($(this).val()))) {
+                $(this).addClass('field-error');
+                error = 1;
+            } else {
+                $(this).removeClass('field-error');
+            }
+        });
+
+        if (!form.find('.field-error').length) {
+            form.find('.form-error').fadeOut(1000);
         }
+
+        return error;
+    }
 
     //
     //
@@ -945,15 +949,15 @@ $(document).ready(function() {
 
     // Disable parallax on mobile
     //
-    jQuery.loadScript = function (url, callback) {
-        jQuery.ajax({
-            url: url,
-            dataType: 'script',
-            success: callback,
-            async: true
-        });
-    }
-    // Check if mobile. Diable parallax and do not render if not on desktop.
+    jQuery.loadScript = function(url, callback) {
+            jQuery.ajax({
+                url: url,
+                dataType: 'script',
+                success: callback,
+                async: true
+            });
+        }
+        // Check if mobile. Diable parallax and do not render if not on desktop.
     if ((/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)) {
         $('section').removeClass('parallax');
         console.log("On Mobile");
@@ -963,25 +967,27 @@ $(document).ready(function() {
 
     // Disqus Comments
 
-    if($('.disqus-comments').length){
-		/* * * CONFIGURATION VARIABLES * * */
-		var disqus_shortname = $('.disqus-comments').attr('data-shortname');
+    if ($('.disqus-comments').length) {
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = $('.disqus-comments').attr('data-shortname');
 
-		/* * * DON'T EDIT BELOW THIS LINE * * */
-		(function() {
-			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-		})();
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
     }
 
     // Load Google MAP API JS with callback to initialise when fully loaded
-    if(document.querySelector('[data-maps-api-key]') && !document.querySelector('.gMapsAPI')){
-        if($('[data-maps-api-key]').length){
+    if (document.querySelector('[data-maps-api-key]') && !document.querySelector('.gMapsAPI')) {
+        if ($('[data-maps-api-key]').length) {
             var script = document.createElement('script');
             var apiKey = $('[data-maps-api-key]:first').attr('data-maps-api-key');
             script.type = 'text/javascript';
-            script.src = 'https://maps.googleapis.com/maps/api/js?key='+apiKey+'&callback=initializeMaps';
+            script.src = 'https://maps.googleapis.com/maps/api/js?key=' + apiKey + '&callback=initializeMaps';
             script.className = 'gMapsAPI';
             document.body.appendChild(script);
         }
@@ -995,7 +1001,7 @@ $(window).load(function() {
     // Initialize Masonry
     console.log("Done");
     $('#preloader').fadeOut('slow', function() {
-      $(this).remove();
+        $(this).remove();
 
     });
     setTimeout(initializeMasonry, 1000);
@@ -1010,67 +1016,35 @@ $(window).load(function() {
             // THREE.JS CODE HERE ==============================================
             //
             // Dynamically load three.js
-            $.loadScript('https://clinic.fusiform.co/assets/js/three/three.min.js', function(){
-                $.loadScript('https://clinic.fusiform.co/assets/js/three/three.min.js', function(){
-                    var currentResponsiveWidth = function() {
-                      // notify the renderer of the size change
-                      var width;
-                      var padding = 0;
-                      var elem1 = document.getElementById("canvas-container");
-                      var compWidth = window.getComputedStyle(elem1, null).getPropertyValue("width");
-                      width = Math.floor(Number(compWidth.substring(0,compWidth.length-2)));
+            $.loadScript('https://clinic.fusiform.co/assets/js/three/three.min.js', function() {
+                $.loadScript('./js/TrackballControl.js', function() {
+                    $.loadScript('./js/OBJLoader.js', function() {
 
-                      if (window.innerWidth > 768) {
-                        width = width-padding;
-                      } else {
-                        width = width-20;
-                      }
+                        $.loadScript('./js/ScanScene.js', function() {
 
-                      return width;
-                    };
-                    var currentResponsiveHeight = function() {
-                      var height;
-                      var padding = 0;
-                      var elem1 = document.getElementById("canvas-container");
-                      var compHeight = window.getComputedStyle(elem1, null).getPropertyValue("height");
-                      height = Math.floor(Number(compHeight.substring(0,compHeight.length-2)));
+                            $('#cast-information').removeClass('col-md-12');
+                            $('#render-container').removeClass('mobileThreeDisable');
+                            $('#cast-information').addClass('col-md-8');
+                            console.log("done loading");
+                            var scene = new ScanScene(window, '#984ef5');
+                            window.addEventListener('resize', scene.adjustSize);
+                            scene.loadOBJ('./models/TKeady1.obj', function(xhr){
 
-                      if (window.innerWidth > 768) {
-                        height = height-padding;
-                      } else {
-                        height = height-20;
-                      }
-
-                      return height;
-                    };
-                    $('#cast-information').removeClass('col-md-12');
-                    $('#render-container').removeClass('mobileThreeDisable');
-                    $('#cast-information').addClass('col-md-8');
-
-                    var WIDTH = currentResponsiveWidth();
-                    var HEIGHT = currentResponsiveHeight();
-                    var container = document.getElementById("canvas-container");
-                    var scene = new THREE.Scene();
-                    var renderer = new THREE.WebGLRenderer();
-                    var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-                    var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-                    var cube = new THREE.Mesh( geometry, material );
-                    scene.add( cube );
-                    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-                    renderer.setSize(WIDTH, HEIGHT);
-                    container.appendChild(renderer.domElement);
-
-                    camera.position.z = 5;
-
-                    camera.aspect	= WIDTH /HEIGHT;
-                    camera.updateProjectionMatrix();
-                    function render() {
-                    	requestAnimationFrame( render );
-                    	renderer.render( scene, camera );
-                    }
-                    render();
-                    //
-                    // THREE.JS Render Complete=====================================
+                                if (xhr.lengthComputable) {
+                                    var percentComplete = xhr.loaded / xhr.total * 100;
+                                    var percentLoaded = Math.round(percentComplete, 2);
+                                    console.log(percentLoaded);
+                                }
+                            }, function(xhr){
+                                console.log("Error");
+                                console.log(xhr);
+                            }, function(){
+                                $('#cast-information').removeClass('col-md-12');
+                                $('#render-container').removeClass('mobileThreeDisable');
+                                $('#cast-information').addClass('col-md-8');
+                            })
+                        });
+                    });
                 });
             });
 
@@ -1099,6 +1073,7 @@ $(window).load(function() {
 
 
 });
+
 function updateNav() {
 
     var scrollY = mr_scrollTop;
@@ -1167,8 +1142,8 @@ function capitaliseFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function initializeMasonry(){
-    $('.masonry').each(function(){
+function initializeMasonry() {
+    $('.masonry').each(function() {
         var container = $(this).get(0);
         var msnry = new Masonry(container, {
             itemSelector: '.masonry-item'
@@ -1231,7 +1206,7 @@ function updateFloatingFilters() {
     while (l--) {
         var section = mr_floatingProjectSections[l];
 
-        if ((section.elemTop < mr_scrollTop) && typeof window.mr_variant == "undefined" ) {
+        if ((section.elemTop < mr_scrollTop) && typeof window.mr_variant == "undefined") {
             section.filters.css({
                 position: 'fixed',
                 top: '16px',
@@ -1261,89 +1236,178 @@ function updateFloatingFilters() {
     }
 }
 
-window.initializeMaps = function(){
-    if(typeof google !== "undefined"){
-        if(typeof google.maps !== "undefined"){
-            $('.map-canvas[data-maps-api-key]').each(function(){
-                    var mapInstance   = this,
-                        mapJSON       = typeof $(this).attr('data-map-style') !== "undefined" ? $(this).attr('data-map-style'): false,
-                        mapStyle      = JSON.parse(mapJSON) || [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}],
-                        zoomLevel     = (typeof $(this).attr('data-map-zoom') !== "undefined" && $(this).attr('data-map-zoom') !== "") ? $(this).attr('data-map-zoom') * 1: 17,
-                        latlong       = typeof $(this).attr('data-latlong') != "undefined" ? $(this).attr('data-latlong') : false,
-                        latitude      = latlong ? 1 *latlong.substr(0, latlong.indexOf(',')) : false,
-                        longitude     = latlong ? 1 * latlong.substr(latlong.indexOf(",") + 1) : false,
-                        geocoder      = new google.maps.Geocoder(),
-                        address       = typeof $(this).attr('data-address') !== "undefined" ? $(this).attr('data-address').split(';'): [""],
-                        markerTitle   = "We Are Here",
-                        isDraggable = $(document).width() > 766 ? true : false,
-                        map, marker, markerImage,
-                        mapOptions = {
-                            draggable: isDraggable,
-                            scrollwheel: false,
-                            zoom: zoomLevel,
-                            disableDefaultUI: true,
-                            styles: mapStyle
-                        };
+window.initializeMaps = function() {
+    if (typeof google !== "undefined") {
+        if (typeof google.maps !== "undefined") {
+            $('.map-canvas[data-maps-api-key]').each(function() {
+                var mapInstance = this,
+                    mapJSON = typeof $(this).attr('data-map-style') !== "undefined" ? $(this).attr('data-map-style') : false,
+                    mapStyle = JSON.parse(mapJSON) || [{
+                        "featureType": "landscape",
+                        "stylers": [{
+                            "saturation": -100
+                        }, {
+                            "lightness": 65
+                        }, {
+                            "visibility": "on"
+                        }]
+                    }, {
+                        "featureType": "poi",
+                        "stylers": [{
+                            "saturation": -100
+                        }, {
+                            "lightness": 51
+                        }, {
+                            "visibility": "simplified"
+                        }]
+                    }, {
+                        "featureType": "road.highway",
+                        "stylers": [{
+                            "saturation": -100
+                        }, {
+                            "visibility": "simplified"
+                        }]
+                    }, {
+                        "featureType": "road.arterial",
+                        "stylers": [{
+                            "saturation": -100
+                        }, {
+                            "lightness": 30
+                        }, {
+                            "visibility": "on"
+                        }]
+                    }, {
+                        "featureType": "road.local",
+                        "stylers": [{
+                            "saturation": -100
+                        }, {
+                            "lightness": 40
+                        }, {
+                            "visibility": "on"
+                        }]
+                    }, {
+                        "featureType": "transit",
+                        "stylers": [{
+                            "saturation": -100
+                        }, {
+                            "visibility": "simplified"
+                        }]
+                    }, {
+                        "featureType": "administrative.province",
+                        "stylers": [{
+                            "visibility": "off"
+                        }]
+                    }, {
+                        "featureType": "water",
+                        "elementType": "labels",
+                        "stylers": [{
+                            "visibility": "on"
+                        }, {
+                            "lightness": -25
+                        }, {
+                            "saturation": -100
+                        }]
+                    }, {
+                        "featureType": "water",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "hue": "#ffff00"
+                        }, {
+                            "lightness": -25
+                        }, {
+                            "saturation": -97
+                        }]
+                    }],
+                    zoomLevel = (typeof $(this).attr('data-map-zoom') !== "undefined" && $(this).attr('data-map-zoom') !== "") ? $(this).attr('data-map-zoom') * 1 : 17,
+                    latlong = typeof $(this).attr('data-latlong') != "undefined" ? $(this).attr('data-latlong') : false,
+                    latitude = latlong ? 1 * latlong.substr(0, latlong.indexOf(',')) : false,
+                    longitude = latlong ? 1 * latlong.substr(latlong.indexOf(",") + 1) : false,
+                    geocoder = new google.maps.Geocoder(),
+                    address = typeof $(this).attr('data-address') !== "undefined" ? $(this).attr('data-address').split(';') : [""],
+                    markerTitle = "We Are Here",
+                    isDraggable = $(document).width() > 766 ? true : false,
+                    map, marker, markerImage,
+                    mapOptions = {
+                        draggable: isDraggable,
+                        scrollwheel: false,
+                        zoom: zoomLevel,
+                        disableDefaultUI: true,
+                        styles: mapStyle
+                    };
 
-                    if($(this).attr('data-marker-title') != undefined && $(this).attr('data-marker-title') != "" )
-                    {
-                        markerTitle = $(this).attr('data-marker-title');
-                    }
+                if ($(this).attr('data-marker-title') != undefined && $(this).attr('data-marker-title') != "") {
+                    markerTitle = $(this).attr('data-marker-title');
+                }
 
-                    if(address != undefined && address[0] != ""){
-                            geocoder.geocode( { 'address': address[0].replace('[nomarker]','')}, function(results, status) {
-                                if (status == google.maps.GeocoderStatus.OK) {
-                                var map = new google.maps.Map(mapInstance, mapOptions);
-                                map.setCenter(results[0].geometry.location);
+                if (address != undefined && address[0] != "") {
+                    geocoder.geocode({
+                        'address': address[0].replace('[nomarker]', '')
+                    }, function(results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            var map = new google.maps.Map(mapInstance, mapOptions);
+                            map.setCenter(results[0].geometry.location);
 
-                                address.forEach(function(address){
-                                    var markerGeoCoder;
+                            address.forEach(function(address) {
+                                var markerGeoCoder;
 
-                                    markerImage = {url: window.mr_variant == undefined ? 'img/mapmarker.png' : '../img/mapmarker.png', size: new google.maps.Size(50,50), scaledSize: new google.maps.Size(50,50)};
-                                    if(/(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)/.test(address) ){
-                                        var latlong = address.split(','),
+                                markerImage = {
+                                    url: window.mr_variant == undefined ? 'img/mapmarker.png' : '../img/mapmarker.png',
+                                    size: new google.maps.Size(50, 50),
+                                    scaledSize: new google.maps.Size(50, 50)
+                                };
+                                if (/(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)/.test(address)) {
+                                    var latlong = address.split(','),
                                         marker = new google.maps.Marker({
-                                                        position: { lat: 1*latlong[0], lng: 1*latlong[1] },
-                                                        map: map,
-                                                        icon: markerImage,
-                                                        title: markerTitle,
-                                                        optimised: false
-                                                    });
-                                    }
-                                    else if(address.indexOf('[nomarker]') < 0){
-                                        markerGeoCoder = new google.maps.Geocoder();
-                                        markerGeoCoder.geocode( { 'address': address.replace('[nomarker]','')}, function(results, status) {
-                                            if (status == google.maps.GeocoderStatus.OK) {
-                                                marker = new google.maps.Marker({
-                                                    map: map,
-                                                    icon: markerImage,
-                                                    title: markerTitle,
-                                                    position: results[0].geometry.location,
-                                                    optimised: false
-                                                });
-                                            }
+                                            position: {
+                                                lat: 1 * latlong[0],
+                                                lng: 1 * latlong[1]
+                                            },
+                                            map: map,
+                                            icon: markerImage,
+                                            title: markerTitle,
+                                            optimised: false
                                         });
-                                    }
+                                } else if (address.indexOf('[nomarker]') < 0) {
+                                    markerGeoCoder = new google.maps.Geocoder();
+                                    markerGeoCoder.geocode({
+                                        'address': address.replace('[nomarker]', '')
+                                    }, function(results, status) {
+                                        if (status == google.maps.GeocoderStatus.OK) {
+                                            marker = new google.maps.Marker({
+                                                map: map,
+                                                icon: markerImage,
+                                                title: markerTitle,
+                                                position: results[0].geometry.location,
+                                                optimised: false
+                                            });
+                                        }
+                                    });
+                                }
 
-                                });
-                            } else {
-                                console.log('There was a problem geocoding the address.');
-                            }
-                        });
-                    }
-                    else if(latitude != undefined && latitude != "" && latitude != false && longitude != undefined && longitude != "" && longitude != false ){
-                        mapOptions.center   = { lat: latitude, lng: longitude};
-                        map = new google.maps.Map(mapInstance, mapOptions);
-                        marker              = new google.maps.Marker({
-                                                    position: { lat: latitude, lng: longitude },
-                                                    map: map,
-                                                    icon: markerImage,
-                                                    title: markerTitle
-                                                });
+                            });
+                        } else {
+                            console.log('There was a problem geocoding the address.');
+                        }
+                    });
+                } else if (latitude != undefined && latitude != "" && latitude != false && longitude != undefined && longitude != "" && longitude != false) {
+                    mapOptions.center = {
+                        lat: latitude,
+                        lng: longitude
+                    };
+                    map = new google.maps.Map(mapInstance, mapOptions);
+                    marker = new google.maps.Marker({
+                        position: {
+                            lat: latitude,
+                            lng: longitude
+                        },
+                        map: map,
+                        icon: markerImage,
+                        title: markerTitle
+                    });
 
-                    }
+                }
 
-                });
+            });
         }
     }
 }
@@ -1356,9 +1420,9 @@ initializeMaps();
 
 // Prepare Signup Form - It is used to retrieve form details from an iframe Mail Chimp or Campaign Monitor form.
 
-function prepareSignup(iFrame){
-    var form   = jQuery('<form />'),
-        div    = jQuery('<div />'),
+function prepareSignup(iFrame) {
+    var form = jQuery('<form />'),
+        div = jQuery('<div />'),
         action;
 
     jQuery(div).html(iFrame.attr('srcdoc'));
@@ -1367,16 +1431,16 @@ function prepareSignup(iFrame){
 
 
     // Alter action for a Mail Chimp-compatible ajax request url.
-    if(/list-manage\.com/.test(action)){
-       action = action.replace('/post?', '/post-json?') + "&c=?";
-       if(action.substr(0,2) == "//"){
-           action = 'http:' + action;
-       }
+    if (/list-manage\.com/.test(action)) {
+        action = action.replace('/post?', '/post-json?') + "&c=?";
+        if (action.substr(0, 2) == "//") {
+            action = 'http:' + action;
+        }
     }
 
     // Alter action for a Campaign Monitor-compatible ajax request url.
-    if(/createsend\.com/.test(action)){
-       action = action + '?callback=?';
+    if (/createsend\.com/.test(action)) {
+        action = action + '?callback=?';
     }
 
 
@@ -1384,7 +1448,7 @@ function prepareSignup(iFrame){
     form.attr('action', action);
 
     // Clone form input fields from
-    jQuery(div).find('input, select, textarea').not('input[type="submit"]').each(function(){
+    jQuery(div).find('input, select, textarea').not('input[type="submit"]').each(function() {
         jQuery(this).clone().appendTo(form);
 
     });
@@ -1420,43 +1484,53 @@ function prepareSignup(iFrame){
 \*/
 
 var mr_cookies = {
-  getItem: function (sKey) {
-    if (!sKey) { return null; }
-    return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
-  },
-  setItem: function (sKey, sValue, vEnd, sPath, sDomain, bSecure) {
-    if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) { return false; }
-    var sExpires = "";
-    if (vEnd) {
-      switch (vEnd.constructor) {
-        case Number:
-          sExpires = vEnd === Infinity ? "; expires=Fri, 31 Dec 9999 23:59:59 GMT" : "; max-age=" + vEnd;
-          break;
-        case String:
-          sExpires = "; expires=" + vEnd;
-          break;
-        case Date:
-          sExpires = "; expires=" + vEnd.toUTCString();
-          break;
-      }
+    getItem: function(sKey) {
+        if (!sKey) {
+            return null;
+        }
+        return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+    },
+    setItem: function(sKey, sValue, vEnd, sPath, sDomain, bSecure) {
+        if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) {
+            return false;
+        }
+        var sExpires = "";
+        if (vEnd) {
+            switch (vEnd.constructor) {
+                case Number:
+                    sExpires = vEnd === Infinity ? "; expires=Fri, 31 Dec 9999 23:59:59 GMT" : "; max-age=" + vEnd;
+                    break;
+                case String:
+                    sExpires = "; expires=" + vEnd;
+                    break;
+                case Date:
+                    sExpires = "; expires=" + vEnd.toUTCString();
+                    break;
+            }
+        }
+        document.cookie = encodeURIComponent(sKey) + "=" + encodeURIComponent(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : "");
+        return true;
+    },
+    removeItem: function(sKey, sPath, sDomain) {
+        if (!this.hasItem(sKey)) {
+            return false;
+        }
+        document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
+        return true;
+    },
+    hasItem: function(sKey) {
+        if (!sKey) {
+            return false;
+        }
+        return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
+    },
+    keys: function() {
+        var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/);
+        for (var nLen = aKeys.length, nIdx = 0; nIdx < nLen; nIdx++) {
+            aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]);
+        }
+        return aKeys;
     }
-    document.cookie = encodeURIComponent(sKey) + "=" + encodeURIComponent(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : "");
-    return true;
-  },
-  removeItem: function (sKey, sPath, sDomain) {
-    if (!this.hasItem(sKey)) { return false; }
-    document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
-    return true;
-  },
-  hasItem: function (sKey) {
-    if (!sKey) { return false; }
-    return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
-  },
-  keys: function () {
-    var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/);
-    for (var nLen = aKeys.length, nIdx = 0; nIdx < nLen; nIdx++) { aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]); }
-    return aKeys;
-  }
 };
 
 /*\
