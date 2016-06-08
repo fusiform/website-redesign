@@ -21,6 +21,7 @@
     
 }
 
+
 @media (max-width: 990px) {
     .annotation-screenshot-caption {
         margin-top: 0px;
@@ -28,7 +29,22 @@
     .workday-caption {
         font-size: 15px;
     }
+    .contact-tint {
+        background: linear-gradient(
+          rgba(41, 41, 41, 0.65), 
+          rgba(41, 41, 41, 0.65)
+        ),  
+    }
+    .contact-margin {
+        margin-top: 20px;    
+     }
+    .map-opacity {
+        opacity: .45;
+    }
+        
+    
 }
+
 
 
 
