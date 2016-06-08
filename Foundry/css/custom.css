@@ -1,4 +1,212 @@
 /****** PLACE YOUR CUSTOM STYLES HERE ******/
 
+.mobileThreeDisable {
+    display:none;
+}
 
-/* ---- Timeline ---- */
+#preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    /*background: #1080f2;*/
+    background: #ffffff;
+}
+#loader-logo {
+    width:200px;
+    height: auto;
+    margin: auto;
+    padding-bottom: 70px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 30px;
+    margin: auto;
+}
+
+.annotation-screenshot-caption{
+    margin-top:100px;
+
+}
+
+.showOnMobile {
+    display:none;
+}
+.hideOnMobile {
+    display:inherit;
+}
+
+@media (max-width: 990px) {
+    .annotation-screenshot-caption {
+        margin-top: 0px;
+    }
+    .workday-caption {
+        font-size: 15px;
+    }
+    .contact-tint {
+        background: linear-gradient(
+          rgba(41, 41, 41, 0.65),
+          rgba(41, 41, 41, 0.65)
+        ),
+    }
+    .contact-margin {
+        margin-top: 20px;
+     }
+    .map-opacity {
+        opacity: .45;
+    }
+
+    .showOnMobile {
+        display:inherit;
+    }
+
+    .hideOnMobile {
+        display:none;
+    }
+}
+
+
+
+.checkbox-option,
+.radio-option {
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  border-radius: 25px;
+  border: 1px solid #1BA8DD;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-bottom: 24px;
+}
+.checkbox-option .inner,
+.radio-option .inner {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0);
+  border: 1px solid #1BA8DD;
+  position: relative;
+  top: 2px;
+  left: 2px;
+  display: inline-block;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+}
+.checkbox-option.checked .inner {
+  transform: translate3d(25px, 0, 0);
+  -webkit-transform: translate3d(25px, 0, 0);
+  -moz-transform: translate3d(25px, 0, 0);
+  background: #1BA8DD;
+}
+.checkbox-option input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+.radio-option {
+  width: 25px;
+  height: 25px;
+  text-align: left;
+}
+.radio-option:nth-of-type(n+2) {
+  margin-left: 24px;
+}
+.radio-option input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+.radio-option .inner {
+  border: none;
+  width: 19px;
+  height: 19px;
+  left: 2px;
+  transform: scale(0);
+  -webkit-transform: scale(0);
+}
+.radio-option + span {
+  display: inline-block;
+  line-height: 25px;
+}
+.radio-option.checked .inner {
+  transform: scale(1);
+  -webkit-transform: scale(1);
+}
+.radio-option.checked .inner {
+  background: blue;
+}
+
+
+
+
+/* Dont put anything below here*/
+.oSpin {
+    opacity: 0.9;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.oSpin:after,
+.oSpin:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    border: 5px solid transparent;
+    border-bottom: 5px solid #00b8fc;
+    border-radius: 100%;
+    -webkit-animation: rotate 1s linear infinite;
+    animation: rotate 1s linear infinite;
+}
+.oSpin:before {
+    width: 40px;
+    height: 40px;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotate {
+    from {
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
