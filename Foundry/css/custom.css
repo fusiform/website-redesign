@@ -12,7 +12,8 @@
     width: 100%;
     height: 100%;
     overflow: visible;
-    background: #1080f2
+    /*background: #1080f2;*/
+    background: #ffffff;
 }
 
 
@@ -88,7 +89,7 @@
     width: 30px;
     height: 30px;
     border: 5px solid transparent;
-    border-bottom: 5px solid #fff;
+    border-bottom: 5px solid #1080f2;
     border-radius: 100%;
     -webkit-animation: rotate 1s linear infinite;
     animation: rotate 1s linear infinite;
