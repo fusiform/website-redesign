@@ -12,14 +12,64 @@
     width: 100%;
     height: 100%;
     overflow: visible;
-    background: #1080f2
+    /*background: #1080f2;*/
+    background: #ffffff;
 }
-
+#loader-logo {
+    width:200px;
+    height: auto;
+    margin: auto;
+    padding-bottom: 70px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 30px;
+    margin: auto;
+}
 
 .annotation-screenshot-caption{
     margin-top:100px;
-    
+
 }
+
+.showOnMobile {
+    display:none;
+}
+.hideOnMobile {
+    display:inherit;
+}
+
+@media (max-width: 990px) {
+    .annotation-screenshot-caption {
+        margin-top: 0px;
+    }
+    .workday-caption {
+        font-size: 15px;
+    }
+    .contact-tint {
+        background: linear-gradient(
+          rgba(41, 41, 41, 0.65),
+          rgba(41, 41, 41, 0.65)
+        ),
+    }
+    .contact-margin {
+        margin-top: 20px;
+     }
+    .map-opacity {
+        opacity: .45;
+    }
+
+    .showOnMobile {
+        display:inherit;
+    }
+
+    .hideOnMobile {
+        display:none;
+    }
+}
+
+
 
 .checkbox-option,
 .radio-option {
@@ -99,32 +149,6 @@
 }
 
 
-@media (max-width: 990px) {
-    .annotation-screenshot-caption {
-        margin-top: 0px;
-    }
-    .workday-caption {
-        font-size: 15px;
-    }
-    .contact-tint {
-        background: linear-gradient(
-          rgba(41, 41, 41, 0.65), 
-          rgba(41, 41, 41, 0.65)
-        ),  
-    }
-    .contact-margin {
-        margin-top: 20px;    
-     }
-    .map-opacity {
-        opacity: .45;
-    }
-        
-    
-}
-
-
-
-
 
 
 /* Dont put anything below here*/
@@ -153,7 +177,7 @@
     width: 30px;
     height: 30px;
     border: 5px solid transparent;
-    border-bottom: 5px solid #fff;
+    border-bottom: 5px solid #00b8fc;
     border-radius: 100%;
     -webkit-animation: rotate 1s linear infinite;
     animation: rotate 1s linear infinite;
