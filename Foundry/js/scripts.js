@@ -839,7 +839,7 @@ $(document).ready(function() {
                 console.log(object);
                 jQuery.ajax({
                     type: "POST",
-                    url: "mail/mail.php",
+                    url: "https://formspree.io/alvina.yau@gmail.com",
                     data: thisForm.serialize() + "&url=" + window.location.href,
                     dataType: "json",
                     cache:false,
