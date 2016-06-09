@@ -32,7 +32,19 @@
     margin-top:100px;
 
 }
+.cast-slider-title {
+    margin-top:70px;
+    }
 
+.cast-slider-img {
+    margin-top:-30px;
+    }
+.cast-slider-caption-bottom {
+    margin-top:-20px;
+}
+.cast-slider-height {
+    height:800px; 
+}
 
 .showOnMobile {
     display:none;
@@ -57,6 +69,21 @@
     .contact-margin {
         margin-top: 20px;
      }
+    
+    .cast-slider-title {
+        margin-top:-10px;
+    }
+    
+    .cast-slider-img {
+        margin-top:0px;
+    }
+    
+    .cast-slider-caption-bottom {
+        margin-top:0px;
+}
+    .cast-slider-height {
+        height:600px; 
+}
     
     .map-opacity {
         opacity: .45;
